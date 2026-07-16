@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <style>
+      .text-space, .text-right { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-size: 44px; font-weight: 700; fill: #000000; text-anchor: middle; letter-spacing: 12px; }
+      .text-projects { font-family: 'Montserrat', 'Helvetica Neue', sans-serif; font-size: 18px; font-weight: 500; fill: #000000; text-anchor: middle; letter-spacing: 18px; }
+    </style>
+  </defs>
+  <path d="M50,50 H310 V190 H450 V450 H50 Z" fill="#FFFFFF" />
+  <rect x="350" y="50" width="100" height="100" fill="#FFFFFF" />
+  <text x="316" y="325" class="text-space" textLength="200" lengthAdjust="spacing">SPACE</text>
+  <text x="316" y="375" class="text-right" textLength="200" lengthAdjust="spacing">RIGHT</text>
+  <text x="318" y="415" class="text-projects" textLength="200" lengthAdjust="spacing">PROJECTS</text>
+</svg>
