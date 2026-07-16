@@ -7,7 +7,7 @@
   --ease-2: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-* {
+html {
   scroll-behavior: smooth;
 }
 
@@ -27,6 +27,12 @@ html, body {
 body {
   cursor: default;
 }
+
+/* Offset for fixed navbar (80px tall) so sections land correctly on scroll */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
 
 ::selection {
   background: #C9A66B;
