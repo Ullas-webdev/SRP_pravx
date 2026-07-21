@@ -3,54 +3,8 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-const PROJECTS = [
-  {
-    client: "Blinkit",
-    type: "Dark Store Network",
-    area: "18,500 sqft",
-    timeline: "6 weeks / site",
-    tech: "MEP · Flooring · Racking · Branding",
-    detail: "25+ stores delivered across metros on a repeatable rollout template.",
-    image: "/projects/blinkit.png",
-  },
-  {
-    client: "Zepto",
-    type: "Quick-Commerce Fit-out",
-    area: "12,000 sqft",
-    timeline: "4 weeks / site",
-    tech: "Cold Storage MEP · Epoxy Flooring · Signage",
-    detail: "20+ dark stores executed with same-week electrical commissioning.",
-    image: "/projects/zepto.png",
-  },
-  {
-    client: "Tata 1mg",
-    type: "Retail Pharmacy Interior",
-    area: "3,200 sqft",
-    timeline: "3 weeks",
-    tech: "Retail Fixtures · Branding · Lighting",
-    detail: "Brand-consistent retail interior for a national pharmacy rollout.",
-    image: "/projects/tata1mg.png",
-  },
-  {
-    client: "WeSchool",
-    type: "Institutional Interior",
-    area: "40,000 sqft",
-    timeline: "10 weeks",
-    tech: "MEP · Acoustic Flooring · Furniture",
-    detail: "A full academic campus interior built for daily high-footfall use.",
-    image: "/projects/weschool.png",
-  },
-  {
-    client: "Gwalia",
-    type: "Luxury Residential",
-    area: "6,800 sqft",
-    timeline: "16 weeks",
-    tech: "Bespoke Joinery · Stone Flooring · MEP",
-    detail: "A private residence finished to a fully bespoke luxury standard.",
-    image: "/projects/gwalia.png",
-  },
-];
+import Link from "next/link";
+import { PROJECTS } from "@/lib/projects-data";
 
 export default function Projects() {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -100,29 +54,31 @@ export default function Projects() {
             transition={{ duration: 0.8, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
             className="snap-start shrink-0 w-[86vw] sm:w-[440px] group"
           >
-            <div className="relative h-[320px] mb-6 overflow-hidden flex items-end p-7 border border-line rounded-xl">
-              
-              {/* Background Image */}
-              <Image 
-                src={p.image}
-                alt={`${p.client} project interior`}
-                fill
-                className="object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
-                unoptimized
-              />
-              
-              {/* Gradient Overlay for Text Readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-              
-              <div className="relative z-10 flex items-center justify-between w-full">
-                <span className="font-display text-3xl text-pearl">{p.client}</span>
-                <span className="w-10 h-10 rounded-full border border-pearl/40 flex items-center justify-center group-hover:bg-gold group-hover:border-gold group-hover:text-matte transition-all duration-400">
-                  <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.2" />
-                  </svg>
-                </span>
+            <Link href={`/projects/${p.slug}`} className="block">
+              <div className="relative h-[320px] mb-6 overflow-hidden flex items-end p-7 border border-line rounded-xl cursor-pointer">
+                
+                {/* Background Image */}
+                <Image 
+                  src={p.image}
+                  alt={`${p.client} project interior`}
+                  fill
+                  className="object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out"
+                  unoptimized
+                />
+                
+                {/* Gradient Overlay for Text Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+                
+                <div className="relative z-10 flex items-center justify-between w-full">
+                  <span className="font-display text-3xl text-pearl">{p.client}</span>
+                  <span className="w-10 h-10 rounded-full border border-pearl/40 flex items-center justify-center group-hover:bg-gold group-hover:border-gold group-hover:text-matte transition-all duration-400">
+                    <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
+                      <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.2" />
+                    </svg>
+                  </span>
+                </div>
               </div>
-            </div>
+            </Link>
 
             <p className="eyebrow text-gold mb-2">{p.type}</p>
             <p className="text-pearl/60 text-sm mb-5 leading-relaxed">{p.detail}</p>
