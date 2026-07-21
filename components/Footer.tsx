@@ -1,19 +1,39 @@
+import Link from "next/link";
+
 const COLUMNS = [
   {
     title: "Services",
-    links: ["Interiors", "Commercial Spaces", "Dark Stores", "MEP Solutions", "Turnkey Solutions"],
+    links: [
+      { label: "Interiors", href: "/services/interiors" },
+      { label: "Commercial Spaces", href: "/services/commercial-spaces" },
+      { label: "Dark Stores", href: "/services/dark-stores" },
+      { label: "MEP Solutions", href: "/services/mep-solutions" },
+      { label: "Turnkey Solutions", href: "/services/turnkey-solutions" },
+    ],
   },
   {
     title: "Company",
-    links: ["Projects", "Careers", "Clients", "Contact"],
+    links: [
+      { label: "Projects", href: "/#projects" },
+      { label: "Careers", href: "/careers" },
+      { label: "Clients", href: "/#clients" },
+      { label: "Contact", href: "/#contact" },
+    ],
   },
   {
     title: "Legal",
-    links: ["Privacy Policy", "Terms of Service"],
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+    ],
   },
 ];
 
-const SOCIALS = ["Instagram", "LinkedIn", "YouTube"];
+const SOCIALS = [
+  { label: "Instagram", href: "https://instagram.com" },
+  { label: "LinkedIn", href: "https://linkedin.com" },
+  { label: "YouTube", href: "https://youtube.com" },
+];
 
 export default function Footer() {
   return (
@@ -22,7 +42,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-[1.4fr,1fr,1fr,1fr] gap-12 pb-16">
           <div>
             <p className="font-display text-2xl mb-4">Space Right Projects</p>
-            <p className="text-pearl/50 text-sm leading-relaxed max-w-xs">
+            <p className="text-pearl/55 text-sm leading-relaxed max-w-xs font-light">
               Premium infrastructure and turnkey interior company delivering
               commercial, retail and luxury residential spaces across India.
             </p>
@@ -32,14 +52,14 @@ export default function Footer() {
             <div key={col.title}>
               <p className="eyebrow text-gold mb-5">{col.title}</p>
               <ul className="space-y-3">
-                {col.links.map((l) => (
-                  <li key={l}>
-                    <a
-                      href="#"
-                      className="text-pearl/55 text-sm hover:text-pearl transition-colors duration-300"
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-pearl/55 text-sm hover:text-pearl transition-colors duration-300 font-light"
                     >
-                      {l}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -50,12 +70,14 @@ export default function Footer() {
             <p className="eyebrow text-gold mb-5">Follow</p>
             <ul className="space-y-3">
               {SOCIALS.map((s) => (
-                <li key={s}>
+                <li key={s.label}>
                   <a
-                    href="#"
-                    className="text-pearl/55 text-sm hover:text-pearl transition-colors duration-300"
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-pearl/55 text-sm hover:text-pearl transition-colors duration-300 font-light"
                   >
-                    {s}
+                    {s.label}
                   </a>
                 </li>
               ))}
