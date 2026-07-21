@@ -110,23 +110,6 @@ function AnimatedLogo({ done }: { done: boolean }) {
   // Main notched square path: M50,50 H310 V190 H450 V450 H50 Z
   const bigPathLength = 1530; // approximate total stroke length
 
-  const containerVariants: Variants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.08 } },
-  };
-
-  const letterVariants: Variants = {
-    hidden: { opacity: 0, y: 6 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
-  const SPACE = "SPACE";
-  const RIGHT = "RIGHT";
-
   return (
     <motion.div
       animate={done ? { scale: 1.06 } : { scale: 1 }}
@@ -170,52 +153,33 @@ function AnimatedLogo({ done }: { done: boolean }) {
         />
       </svg>
 
-      {/* Text: SPACE — letter by letter */}
-      <motion.div
-        className="flex gap-[0.25em] mb-1"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        style={{ transitionDelay: "1.8s" } as React.CSSProperties}
-        // override: start stagger only after big square fill
-        custom={1.8}
-      >
-        {SPACE.split("").map((ch, i) => (
-          <motion.span
-            key={i}
-            variants={letterVariants}
-            transition={{ delay: 1.8 + i * 0.06, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            initial="hidden"
-            animate="visible"
-            className="text-white font-bold tracking-[0.25em] text-4xl md:text-5xl"
-            style={{ fontFamily: "'Montserrat','Helvetica Neue',sans-serif" }}
-          >
-            {ch}
-          </motion.span>
-        ))}
-      </motion.div>
-
-      {/* Text: RIGHT — letter by letter */}
-      <div className="flex gap-[0.25em] mb-3">
-        {RIGHT.split("").map((ch, i) => (
-          <motion.span
-            key={i}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.98 + i * 0.06, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white font-bold tracking-[0.25em] text-4xl md:text-5xl"
-            style={{ fontFamily: "'Montserrat','Helvetica Neue',sans-serif" }}
-          >
-            {ch}
-          </motion.span>
-        ))}
-      </div>
-
-      {/* Text: PROJECTS — blur-to-focus */}
+      {/* Text: SPACE */}
       <motion.span
-        initial={{ opacity: 0, filter: "blur(12px)" }}
-        animate={{ opacity: 1, filter: "blur(0px)" }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 2.16 }}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.3 }}
+        className="text-white font-bold tracking-[0.25em] text-4xl md:text-5xl mb-1"
+        style={{ fontFamily: "'Montserrat','Helvetica Neue',sans-serif" }}
+      >
+        SPACE
+      </motion.span>
+
+      {/* Text: RIGHT */}
+      <motion.span
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.38 }}
+        className="text-white font-bold tracking-[0.25em] text-4xl md:text-5xl mb-3"
+        style={{ fontFamily: "'Montserrat','Helvetica Neue',sans-serif" }}
+      >
+        RIGHT
+      </motion.span>
+
+      {/* Text: PROJECTS */}
+      <motion.span
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 1.46 }}
         className="text-[#C9A66B] tracking-[0.45em] text-sm md:text-base font-medium"
         style={{ fontFamily: "'Montserrat','Helvetica Neue',sans-serif" }}
       >
