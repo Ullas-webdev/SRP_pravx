@@ -69,7 +69,7 @@ export default function Contact() {
           </p>
 
           <div className="space-y-6 mb-10">
-            <a href="tel:+919999999999" className="flex items-center gap-4 group">
+            <a href="tel:+918884887878" className="flex items-center gap-4 group">
               <span className="w-11 h-11 rounded-full border border-pearl/25 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
                 ☎
               </span>
@@ -77,7 +77,7 @@ export default function Contact() {
                 +91 8884887878
               </span>
             </a>
-            <a href="mailto:hello@spacerightprojects.com" className="flex items-center gap-4 group">
+            <a href="mailto:info@spaceright.co.in" className="flex items-center gap-4 group">
               <span className="w-11 h-11 rounded-full border border-pearl/25 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
                 ✉
               </span>

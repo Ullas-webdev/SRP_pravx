@@ -1,49 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const SERVICES = [
-  {
-    n: "01",
-    title: "Interiors",
-    desc: "End-to-end interior design and execution for corporate and commercial environments.",
-  },
-  {
-    n: "02",
-    title: "Commercial Spaces",
-    desc: "Office fit-outs built around workflow, brand and long-term flexibility.",
-  },
-  {
-    n: "03",
-    title: "Dark Stores",
-    desc: "Rapid-deploy quick-commerce facilities engineered for throughput.",
-  },
-  {
-    n: "04",
-    title: "MEP Solutions",
-    desc: "Mechanical, electrical and plumbing systems, planned and installed in-house.",
-  },
-  {
-    n: "05",
-    title: "Flooring",
-    desc: "Epoxy, vitrified, vinyl and stone flooring finished to a premium standard.",
-  },
-  {
-    n: "06",
-    title: "Painting",
-    desc: "Surface prep and finish coatings for interior and exterior facades.",
-  },
-  {
-    n: "07",
-    title: "Branding Solutions",
-    desc: "Signage, wayfinding and in-store branding integrated at the build stage.",
-  },
-  {
-    n: "08",
-    title: "Turnkey Solutions",
-    desc: "Single point of accountability from design intent to handover.",
-  },
-];
+import Link from "next/link";
+import { SERVICES } from "@/lib/services-data";
 
 const container = {
   hidden: {},
@@ -80,25 +39,35 @@ export default function Services() {
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line"
         >
           {SERVICES.map((s) => (
-            <motion.div
-              variants={item}
-              key={s.n}
-              className="card-glass group relative p-8 min-h-[240px] flex flex-col justify-between bg-matte hover:bg-charcoal transition-colors duration-500"
-            >
-              <div className="flex items-start justify-between">
-                <span className="eyebrow text-gold">{s.n}</span>
-                <span className="w-8 h-8 rounded-full border border-pearl/20 flex items-center justify-center text-pearl/40 group-hover:border-gold group-hover:text-gold group-hover:rotate-45 transition-all duration-500">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.2" />
-                  </svg>
-                </span>
-              </div>
-              <div>
-                <h3 className="font-display text-2xl mb-3 group-hover:text-gold transition-colors duration-400">
-                  {s.title}
-                </h3>
-                <p className="text-pearl/55 text-sm leading-relaxed">{s.desc}</p>
-              </div>
+            <motion.div key={s.n} variants={item}>
+              <Link
+                href={`/services/${s.slug}`}
+                className="card-glass group relative p-8 min-h-[240px] flex flex-col justify-between bg-matte hover:bg-charcoal transition-colors duration-500 block"
+              >
+                {/* Hover background image preview */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${s.bgImage})` }}
+                />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-t from-charcoal to-transparent" />
+
+                <div className="relative flex items-start justify-between">
+                  <span className="eyebrow text-gold">{s.n}</span>
+                  <span
+                    className="w-8 h-8 rounded-full border border-pearl/20 flex items-center justify-center text-pearl/40 group-hover:border-gold group-hover:text-gold group-hover:rotate-45 transition-all duration-500"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.2" />
+                    </svg>
+                  </span>
+                </div>
+                <div className="relative">
+                  <h3 className="font-display text-2xl mb-3 group-hover:text-gold transition-colors duration-400">
+                    {s.title}
+                  </h3>
+                  <p className="text-pearl/55 text-sm leading-relaxed">{s.tagline}</p>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
