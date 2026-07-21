@@ -52,7 +52,7 @@ export default function PageShell({ children }: PageShellProps) {
       <div
         style={{
           opacity: showContent ? 1 : 0,
-          transform: showContent ? "translateY(0px)" : "translateY(20px)",
+          transform: showContent ? "none" : "translateY(20px)",
           transition: "opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
