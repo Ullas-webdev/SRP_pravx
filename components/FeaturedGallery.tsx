@@ -45,14 +45,12 @@ export default function FeaturedGallery() {
   return (
     <section className="py-16 md:py-24 bg-matte relative border-t border-line/40">
       <div className="container-x">
-        <div className="mb-14 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <p className="eyebrow text-gold mb-4">Gallery</p>
-            <h2 className="font-display text-4xl md:text-5xl font-light">
-              Featured <span className="italic gold-gradient-text">Environments</span>
-            </h2>
-          </div>
-          <p className="text-pearl/60 max-w-sm text-sm md:text-base">
+        <div className="mb-14 md:mb-20">
+          <p className="eyebrow text-gold mb-4">Gallery</p>
+          <h2 className="font-display text-4xl md:text-5xl font-light mb-4">
+            Featured <span className="italic gold-gradient-text">Environments</span>
+          </h2>
+          <p className="text-pearl/60 text-base md:text-lg font-light leading-relaxed max-w-3xl">
             A closer look at the premium spaces, precision engineering, and bespoke interiors we deliver across sectors.
           </p>
         </div>
@@ -80,17 +78,6 @@ export default function FeaturedGallery() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 unoptimized
               />
-              
-              {/* Gradient Overlay for text contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-85 group-hover:opacity-90 transition-opacity duration-500 z-10" />
-              
-              {/* Description text in the bottom left corner */}
-              <div className="absolute bottom-0 left-0 p-5 md:p-6 z-20 flex flex-col gap-1.5 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
-                <span className="text-white font-display text-base md:text-lg font-light tracking-wide">
-                  {img.label}
-                </span>
-                <div className="w-0 group-hover:w-8 h-px bg-gold transition-all duration-500" />
-              </div>
             </motion.div>
           ))}
         </div>
