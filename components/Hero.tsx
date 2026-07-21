@@ -158,7 +158,7 @@ export default function Hero() {
             href="#contact"
             className="btn-primary border border-pearl px-7 py-3.5 eyebrow hover:text-matte transition-colors duration-300"
           >
-            Get Free Consultation
+            Get Consultation
           </a>
           <a
             href="#projects"

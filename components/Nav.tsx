@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import Logo from "./Logo";
 
 const LINKS = [
   { label: "Services", href: "services" },
@@ -28,6 +31,8 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const pathname = usePathname();
+  const router = useRouter();
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -52,10 +57,28 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleLinkClick = (id: string) => {
+    if (id === "top") {
+      if (pathname === "/") {
+        scrollToSection("top");
+      } else {
+        router.push("/");
+      }
+      return;
+    }
+    if (pathname === "/") {
+      scrollToSection(id);
+    } else {
+      router.push(`/#${id}`);
+    }
+  };
+
   const handleMobileNav = (id: string) => {
     setOpen(false);
     // Small delay so the menu closes before scrolling starts
-    setTimeout(() => scrollToSection(id), 320);
+    setTimeout(() => {
+      handleLinkClick(id);
+    }, 320);
   };
 
   return (
@@ -94,22 +117,11 @@ export default function Nav() {
 
           {/* Logo / brand — flex-1 on mobile so it centres, auto on desktop */}
           <button
-            onClick={() => scrollToSection("top")}
-            className="flex items-center gap-3 focus:outline-none flex-1 md:flex-none"
-            aria-label="Scroll to top"
+            onClick={() => handleLinkClick("top")}
+            className="flex items-center focus:outline-none flex-1 md:flex-none"
+            aria-label="Go to landing page"
           >
-            {/* Square logo mark — visible on mobile, hidden on desktop */}
-            <Image
-              src="/logo.png"
-              alt="SRP logo"
-              width={100}
-              height={32}
-              className="md:hidden object-contain"
-              unoptimized
-            />
-            {/* Desktop: text-only logo */}
-            <span className="hidden md:inline font-display text-xl tracking-wide">SRP</span>
-            <span className="hidden md:inline eyebrow text-pearl/50">Space Right Projects</span>
+            <Logo variant="horizontal" mode="dark" className="h-8 md:h-9 w-auto" />
           </button>
 
           {/* ── DESKTOP: centre nav links ── */}
@@ -117,8 +129,8 @@ export default function Nav() {
             {LINKS.map((l) => (
               <li key={l.href}>
                 <button
-                  onClick={() => scrollToSection(l.href)}
-                  className={`eyebrow transition-colors duration-300 ${
+                  onClick={() => handleLinkClick(l.href)}
+                  className={`eyebrow !text-xs md:!text-sm transition-colors duration-300 ${
                     active === l.href
                       ? "text-gold"
                       : "text-pearl/70 hover:text-gold"
@@ -132,10 +144,10 @@ export default function Nav() {
 
           {/* ── DESKTOP: CTA button ── */}
           <button
-            onClick={() => scrollToSection("contact")}
-            className="btn-primary hidden md:inline-flex items-center border border-pearl/30 px-5 py-2.5 eyebrow hover:text-matte transition-colors duration-300"
+            onClick={() => handleLinkClick("contact")}
+            className="btn-primary hidden md:inline-flex items-center border border-pearl/30 px-5 py-2.5 eyebrow !text-xs md:!text-sm hover:text-matte transition-colors duration-300"
           >
-            Get Free Consultation
+            Get Consultation
           </button>
 
         </nav>
@@ -179,9 +191,9 @@ export default function Nav() {
             >
               <button
                 onClick={() => handleMobileNav("contact")}
-                className="w-full border border-gold text-gold px-6 py-4 eyebrow text-center hover:bg-gold hover:text-matte transition-colors duration-300"
+                className="w-full border border-gold text-gold px-6 py-4 eyebrow !text-sm text-center hover:bg-gold hover:text-matte transition-colors duration-300"
               >
-                Get Free Consultation
+                Get Consultation
               </button>
             </motion.div>
           </motion.div>

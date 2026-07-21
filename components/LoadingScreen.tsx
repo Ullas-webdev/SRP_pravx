@@ -176,15 +176,15 @@ function AnimatedLogo({ done }: { done: boolean }) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{ transitionDelay: "1.9s" } as React.CSSProperties}
+        style={{ transitionDelay: "1.8s" } as React.CSSProperties}
         // override: start stagger only after big square fill
-        custom={1.9}
+        custom={1.8}
       >
         {SPACE.split("").map((ch, i) => (
           <motion.span
             key={i}
             variants={letterVariants}
-            transition={{ delay: 1.9 + i * 0.07, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 1.8 + i * 0.06, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             initial="hidden"
             animate="visible"
             className="text-white font-bold tracking-[0.25em] text-4xl md:text-5xl"
@@ -202,7 +202,7 @@ function AnimatedLogo({ done }: { done: boolean }) {
             key={i}
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.25 + i * 0.07, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 1.98 + i * 0.06, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="text-white font-bold tracking-[0.25em] text-4xl md:text-5xl"
             style={{ fontFamily: "'Montserrat','Helvetica Neue',sans-serif" }}
           >
@@ -215,7 +215,7 @@ function AnimatedLogo({ done }: { done: boolean }) {
       <motion.span
         initial={{ opacity: 0, filter: "blur(12px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 2.7 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 2.16 }}
         className="text-[#C9A66B] tracking-[0.45em] text-sm md:text-base font-medium"
         style={{ fontFamily: "'Montserrat','Helvetica Neue',sans-serif" }}
       >
