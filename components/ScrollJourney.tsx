@@ -286,29 +286,17 @@ export default function ScrollJourney() {
           />
 
           <svg viewBox="0 0 600 600" className="w-full h-full max-w-[540px] relative z-10 select-none">
-            {/* Background architectural fine grids */}
-            <g stroke="#C9A66B" strokeWidth="0.35" opacity="0.12">
-              {Array.from({ length: 13 }).map((_, i) => (
-                <line key={`h${i}`} x1="40" y1={40 + i * 43.3} x2="560" y2={40 + i * 43.3} />
-              ))}
-              {Array.from({ length: 13 }).map((_, i) => (
-                <line key={`v${i}`} x1={40 + i * 43.3} y1="40" x2={40 + i * 43.3} y2="560" />
-              ))}
-            </g>
-
-            {/* Dynamic visual reveal - elements accumulate and blend into each other */}
+            {/* Dynamic visual reveal */}
             <AnimatePresence>
-              {Array.from({ length: stage + 1 }).map((_, i) => (
-                <motion.g
-                  key={i}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: i === stage ? 1 : 0.4 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
-                >
-                  {renderGeometry(i)}
-                </motion.g>
-              ))}
+              <motion.g
+                key={stage}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              >
+                {renderGeometry(stage)}
+              </motion.g>
             </AnimatePresence>
           </svg>
         </div>
