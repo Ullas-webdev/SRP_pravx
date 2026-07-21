@@ -7,25 +7,18 @@ import { motion } from "framer-motion";
 
 const ROLES = [
   {
-    title: "Senior Project Manager (Turnkey Fit-outs)",
-    dept: "Operations / Execution",
-    exp: "8-12 Years",
-    location: "Metro Cities (Mumbai / Bengaluru / Delhi NCR)",
-    desc: "Lead multi-crore corporate and quick-commerce commercial interior programs from site mobilization to final handover, managing in-house teams and scheduling MEP/civil handshakes.",
+    title: "Site Engineer",
+    dept: "Site Operations & Execution",
+    exp: "2-3 Years",
+    location: "On-Site Operations",
+    desc: "Diploma in Civil/Electrical Engineering required. Responsible for executing on-site layouts, managing daily material inventory, directing subcontractor trades, and ensuring high-quality fit-out execution.",
   },
   {
-    title: "MEP Design Engineer (HVAC & Electrical)",
-    dept: "Engineering",
-    exp: "5-7 Years",
-    location: "Headquarters",
-    desc: "Design high-performance mechanical, electrical, and HVAC distributions for large-scale dark stores, cold chains, and corporate buildings, ensuring zero coordination gaps.",
-  },
-  {
-    title: "Procurement & Estimation Executive",
-    dept: "Finance & Supply Chain",
-    exp: "4-6 Years",
-    location: "Headquarters",
-    desc: "Oversee material sourcing, vendor relationships, and exact project estimations for fit-outs. Manage structural, stone, and electrical supply lines.",
+    title: "Electrician / Plumber / Carpenter",
+    dept: "Execution Team / Skilled Trades",
+    exp: "2+ Years",
+    location: "On-Site Operations",
+    desc: "Skilled professionals needed for immediate execution of luxury commercial, kitchen, and turnkey retail fit-outs. Ability to read blueprints and execute MEP/millwork drawings accurately is highly preferred.",
   },
 ];
 
@@ -122,10 +115,10 @@ export default function CareersPage() {
               directly with our recruitment team and let us build something performance-driven.
             </p>
             <a
-              href="mailto:careers@spacerightprojects.com"
+              href="mailto:info@spaceright.co.in"
               className="inline-flex items-center justify-center border border-pearl hover:border-gold hover:text-gold px-8 py-4 eyebrow transition-all duration-400 hover:bg-gold/10 backdrop-blur-sm"
             >
-              careers@spacerightprojects.com
+              info@spaceright.co.in
             </a>
           </div>
         </div>
