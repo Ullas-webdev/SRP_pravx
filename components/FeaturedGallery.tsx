@@ -4,13 +4,41 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const featuredImages = [
-  { src: "/featured/batch2_2.jpg", span: "md:col-span-2 md:row-span-2" }, // Large feature
-  { src: "/featured/batch1_1.jpg", span: "md:col-span-1 md:row-span-1" },
-  { src: "/featured/batch1_4.jpg", span: "md:col-span-1 md:row-span-2" }, // Tall feature
-  { src: "/featured/batch1_2.jpg", span: "md:col-span-1 md:row-span-1" },
-  { src: "/featured/batch2_1.jpg", span: "md:col-span-2 md:row-span-1" }, // Wide feature
-  { src: "/featured/batch1_5.jpg", span: "md:col-span-1 md:row-span-1" },
-  { src: "/featured/batch1_3.jpg", span: "md:col-span-1 md:row-span-1" },
+  { 
+    src: "/featured/batch2_2.jpg", 
+    span: "md:col-span-2 md:row-span-2", 
+    label: "Bespoke Corporate Boardroom" 
+  },
+  { 
+    src: "/featured/batch1_1.jpg", 
+    span: "md:col-span-1 md:row-span-1", 
+    label: "Premium Executive Suite" 
+  },
+  { 
+    src: "/featured/batch1_4.jpg", 
+    span: "md:col-span-1 md:row-span-2", 
+    label: "Modern Collaboration Zone" 
+  },
+  { 
+    src: "/featured/batch1_2.jpg", 
+    span: "md:col-span-1 md:row-span-1", 
+    label: "Aesthetic Café Fit-out" 
+  },
+  { 
+    src: "/featured/batch2_1.jpg", 
+    span: "md:col-span-2 md:row-span-1", 
+    label: "Luxury Residential Lounge" 
+  },
+  { 
+    src: "/featured/batch1_5.jpg", 
+    span: "md:col-span-1 md:row-span-1", 
+    label: "Acoustic Lecture Hall" 
+  },
+  { 
+    src: "/featured/batch1_3.jpg", 
+    span: "md:col-span-1 md:row-span-1", 
+    label: "Precision MEP Infrastructure" 
+  },
 ];
 
 export default function FeaturedGallery() {
@@ -40,15 +68,29 @@ export default function FeaturedGallery() {
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className={`relative rounded-xl overflow-hidden group ${img.span}`}
             >
-              <div className="absolute inset-0 bg-pearl/5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              {/* 
+                Image scaled to 1.05 initially to automatically crop out 
+                any thin baked-in white borders around the image edge.
+              */}
               <Image
                 src={img.src}
-                alt={`Featured project ${i + 1}`}
+                alt={img.label}
                 fill
-                className="object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="object-cover scale-[1.05] group-hover:scale-[1.10] transition-transform duration-700 ease-out"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 unoptimized
               />
+              
+              {/* Gradient Overlay for text contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-85 group-hover:opacity-90 transition-opacity duration-500 z-10" />
+              
+              {/* Description text in the bottom left corner */}
+              <div className="absolute bottom-0 left-0 p-5 md:p-6 z-20 flex flex-col gap-1.5 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
+                <span className="text-white font-display text-base md:text-lg font-light tracking-wide">
+                  {img.label}
+                </span>
+                <div className="w-0 group-hover:w-8 h-px bg-gold transition-all duration-500" />
+              </div>
             </motion.div>
           ))}
         </div>
@@ -56,3 +98,4 @@ export default function FeaturedGallery() {
     </section>
   );
 }
+
