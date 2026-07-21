@@ -275,17 +275,17 @@ export default function ScrollJourney() {
         </div>
 
         {/* Right Column: Glowing Geometric Figure Display */}
-        <div className="relative h-[45vh] md:h-[55vh] flex items-center justify-center bg-[#101011] border border-line/35 rounded-2xl p-6 overflow-hidden">
+        <div className="relative h-[45vh] md:h-[55vh] w-full flex items-center justify-center overflow-hidden">
           {/* Radial ambient glow behind geometry */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(circle 220px at 50% 50%, rgba(201,166,107,0.09) 0%, transparent 100%)",
+                "radial-gradient(circle 280px at 50% 50%, rgba(201,166,107,0.12) 0%, transparent 100%)",
             }}
           />
 
-          <svg viewBox="0 0 600 600" className="w-full h-full max-w-[500px] relative z-10 select-none">
+          <svg viewBox="0 0 600 600" className="w-full h-full max-w-[540px] relative z-10 select-none">
             {/* Background architectural fine grids */}
             <g stroke="#C9A66B" strokeWidth="0.35" opacity="0.12">
               {Array.from({ length: 13 }).map((_, i) => (
