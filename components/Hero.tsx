@@ -29,28 +29,101 @@ const SCENES = [
 function ArchLines({ index }: { index: number }) {
   // Generates a distinct abstract architectural line composition per scene
   const variants = [
-    <g key="0" stroke="#C9A66B" strokeWidth="0.6" fill="none" opacity="0.55">
-      <rect x="60" y="80" width="480" height="440" />
-      <line x1="60" y1="220" x2="540" y2="220" />
-      <line x1="60" y1="360" x2="540" y2="360" />
-      <line x1="230" y1="80" x2="230" y2="520" />
-      <line x1="60" y1="80" x2="540" y2="520" opacity="0.25" />
+    // Variant 0: Modern House Contour / Building Structural Truss (Building a Home)
+    <g key="0" stroke="#C9A66B" strokeWidth="0.75" fill="none" opacity="0.55">
+      <polygon points="100,500 100,280 300,100 500,280 500,500" />
+      <line x1="50" y1="500" x2="550" y2="500" strokeWidth="1.5" />
+      <line x1="100" y1="380" x2="500" y2="380" />
+      <line x1="100" y1="280" x2="500" y2="280" />
+      <line x1="200" y1="280" x2="200" y2="500" />
+      <line x1="300" y1="100" x2="300" y2="500" />
+      <line x1="400" y1="280" x2="400" y2="500" />
+      <line x1="100" y1="280" x2="300" y2="280" />
+      <line x1="300" y1="280" x2="500" y2="280" />
+      <line x1="200" y1="190" x2="200" y2="280" strokeDasharray="3,3" />
+      <line x1="400" y1="190" x2="400" y2="280" strokeDasharray="3,3" />
+      <line x1="100" y1="280" x2="200" y2="190" />
+      <line x1="300" y1="100" x2="200" y2="280" />
+      <line x1="300" y1="100" x2="400" y2="280" />
+      <line x1="500" y1="280" x2="400" y2="190" />
+      <rect x="135" y="310" width="30" height="40" opacity="0.4" />
+      <rect x="435" y="310" width="30" height="40" opacity="0.4" />
+      <rect x="235" y="410" width="30" height="60" opacity="0.4" />
+      <line x1="100" y1="500" x2="200" y2="380" opacity="0.2" />
+      <line x1="500" y1="500" x2="400" y2="380" opacity="0.2" />
     </g>,
-    <g key="1" stroke="#C9A66B" strokeWidth="0.6" fill="none" opacity="0.55">
-      <circle cx="300" cy="300" r="220" />
-      <circle cx="300" cy="300" r="140" />
-      <line x1="80" y1="300" x2="520" y2="300" />
-      <line x1="300" y1="80" x2="300" y2="520" />
+
+    // Variant 1: Modular Kitchen Cabinetry Elevation (Kitchen Design)
+    <g key="1" stroke="#C9A66B" strokeWidth="0.75" fill="none" opacity="0.55">
+      <rect x="80" y="100" width="440" height="400" />
+      <line x1="80" y1="320" x2="520" y2="320" strokeWidth="1.5" />
+      <line x1="80" y1="220" x2="520" y2="220" />
+      <line x1="190" y1="320" x2="190" y2="500" />
+      <line x1="300" y1="320" x2="300" y2="500" />
+      <line x1="410" y1="320" x2="410" y2="500" />
+      <line x1="80" y1="380" x2="190" y2="380" />
+      <line x1="80" y1="440" x2="190" y2="440" />
+      <line x1="210" y1="340" x2="210" y2="380" strokeWidth="1.5" />
+      <line x1="280" y1="340" x2="280" y2="380" strokeWidth="1.5" />
+      <line x1="320" y1="340" x2="320" y2="440" strokeWidth="1.5" />
+      <line x1="390" y1="340" x2="390" y2="440" strokeWidth="1.5" />
+      <rect x="220" y="100" width="160" height="120" />
+      <line x1="220" y1="180" x2="380" y2="180" strokeDasharray="3,3" />
+      <circle cx="300" cy="140" r="12" />
+      <line x1="80" y1="140" x2="200" y2="140" strokeWidth="1.2" />
+      <line x1="80" y1="180" x2="200" y2="180" strokeWidth="1.2" />
+      <line x1="400" y1="140" x2="520" y2="140" strokeWidth="1.2" />
+      <line x1="400" y1="180" x2="520" y2="180" strokeWidth="1.2" />
+      <polygon points="130,140 135,115 145,115 150,140" opacity="0.3" />
+      <rect x="445" y="140" width="20" height="30" opacity="0.3" />
+      <circle cx="490" cy="125" r="10" opacity="0.3" />
     </g>,
-    <g key="2" stroke="#C9A66B" strokeWidth="0.6" fill="none" opacity="0.55">
-      <polygon points="300,60 540,220 460,520 140,520 60,220" />
-      <polygon points="300,160 440,260 390,460 210,460 160,260" />
+
+    // Variant 2: Electrical Wiring Schematics & Lighting Fixtures (MEP Systems)
+    <g key="2" stroke="#C9A66B" strokeWidth="0.75" fill="none" opacity="0.55">
+      <circle cx="300" cy="300" r="230" strokeDasharray="4,4" opacity="0.2" />
+      <circle cx="300" cy="300" r="150" strokeDasharray="2,2" opacity="0.25" />
+      <line x1="70" y1="300" x2="530" y2="300" />
+      <line x1="300" y1="70" x2="300" y2="530" />
+      <path d="M 150 150 L 300 200 L 450 150" strokeDasharray="3,3" />
+      <path d="M 150 450 L 300 400 L 450 450" strokeDasharray="3,3" />
+      <circle cx="300" cy="200" r="8" fill="#C9A66B" />
+      <circle cx="300" cy="400" r="8" fill="#C9A66B" />
+      <circle cx="150" cy="300" r="8" fill="#C9A66B" />
+      <circle cx="450" cy="300" r="8" fill="#C9A66B" />
+      <line x1="150" y1="300" x2="150" y2="350" />
+      <polygon points="140,350 160,350 150,365" fill="#C9A66B" />
+      <line x1="450" y1="300" x2="450" y2="350" />
+      <polygon points="440,350 460,350 450,365" fill="#C9A66B" />
+      <line x1="300" y1="200" x2="300" y2="270" />
+      <circle cx="300" cy="275" r="5" fill="#C9A66B" />
+      <polyline points="150,150 100,150 100,200" />
+      <polyline points="450,150 500,150 500,200" />
+      <polyline points="150,450 100,450 100,400" />
+      <polyline points="450,450 500,450 500,400" />
     </g>,
-    <g key="3" stroke="#C9A66B" strokeWidth="0.6" fill="none" opacity="0.55">
-      <rect x="90" y="100" width="180" height="180" />
-      <rect x="330" y="100" width="180" height="180" />
-      <rect x="90" y="340" width="180" height="180" />
-      <rect x="330" y="340" width="180" height="180" />
+
+    // Variant 3: Architectural Interior Isometric Room Corner (Space & Interiors)
+    <g key="3" stroke="#C9A66B" strokeWidth="0.75" fill="none" opacity="0.55">
+      <line x1="300" y1="60" x2="300" y2="400" strokeWidth="1.2" />
+      <line x1="80" y1="180" x2="300" y2="400" strokeWidth="1.2" />
+      <line x1="520" y1="180" x2="300" y2="400" strokeWidth="1.2" />
+      <line x1="80" y1="100" x2="300" y2="320" />
+      <line x1="80" y1="20" x2="300" y2="240" />
+      <line x1="520" y1="100" x2="300" y2="320" />
+      <line x1="520" y1="20" x2="300" y2="240" />
+      <line x1="300" y1="400" x2="300" y2="550" />
+      <line x1="245" y1="350" x2="190" y2="470" />
+      <line x1="190" y1="300" x2="80" y2="390" />
+      <line x1="355" y1="350" x2="410" y2="470" />
+      <line x1="410" y1="300" x2="520" y2="390" />
+      <line x1="300" y1="450" x2="120" y2="410" />
+      <line x1="300" y1="450" x2="480" y2="410" />
+      <line x1="300" y1="500" x2="150" y2="470" />
+      <line x1="300" y1="500" x2="450" y2="470" />
+      <polygon points="180,380 230,400 230,460 180,440 Z" />
+      <polygon points="230,400 280,370 280,430 230,460 Z" />
+      <polygon points="180,380 230,400 280,370 230,350 Z" />
     </g>,
   ];
   return (
