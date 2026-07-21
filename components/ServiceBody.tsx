@@ -21,10 +21,8 @@ const stagger = {
 export default function ServiceBody({ service }: Props) {
   const descRef = useRef(null);
   const delRef = useRef(null);
-  const statsRef = useRef(null);
   const descInView = useInView(descRef, { once: true, margin: "-100px" });
   const delInView = useInView(delRef, { once: true, margin: "-100px" });
-  const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
 
   return (
     <section className="relative py-28 md:py-36 overflow-hidden">
@@ -141,37 +139,7 @@ export default function ServiceBody({ service }: Props) {
           </motion.div>
         </motion.div>
 
-        {/* Divider */}
-        <div className="hairline mb-28" />
 
-        {/* Stats */}
-        <motion.div
-          ref={statsRef}
-          variants={stagger}
-          initial="hidden"
-          animate={statsInView ? "show" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-line"
-        >
-          {service.stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              className="bg-matte p-8 md:p-12 text-center flex flex-col justify-center items-center h-full"
-            >
-              <p
-                className="font-display font-light num-stat mb-4 whitespace-nowrap"
-                style={{
-                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
-                  color: service.accentColor,
-                  lineHeight: 1,
-                }}
-              >
-                {stat.value}
-              </p>
-              <p className="eyebrow text-pearl/40 text-balance leading-relaxed">{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
