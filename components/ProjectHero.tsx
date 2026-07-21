@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import type { ProjectData } from "@/lib/projects-data";
@@ -11,7 +10,6 @@ interface Props {
 }
 
 export default function ProjectHero({ project }: Props) {
-  const router = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Parallax scroll effect for background image
@@ -56,28 +54,6 @@ export default function ProjectHero({ project }: Props) {
 
       {/* Content */}
       <div className="relative z-10 container-x w-full">
-        {/* Back button */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-12 md:mb-20"
-        >
-          <button
-            onClick={() => router.back()}
-            className="group inline-flex items-center gap-3 border border-pearl/20 hover:border-gold px-5 py-3 transition-all duration-400 hover:bg-gold/10 backdrop-blur-sm"
-          >
-            <span className="w-7 h-7 rounded-full border border-pearl/25 group-hover:border-gold flex items-center justify-center text-pearl/50 group-hover:text-gold transition-all duration-400 group-hover:-translate-x-0.5">
-              <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-                <path d="M10 6H2M2 6L6 2M2 6L6 10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-            <span className="eyebrow text-pearl/60 group-hover:text-gold transition-colors duration-300">
-              Back to Selected Work
-            </span>
-          </button>
-        </motion.div>
-
         {/* Client Name & Type */}
         <div className="flex flex-col gap-4 max-w-4xl">
           <motion.p
