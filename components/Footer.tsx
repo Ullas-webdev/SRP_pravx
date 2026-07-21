@@ -31,7 +31,7 @@ const COLUMNS = [
 
 const SOCIALS = [
   { label: "Instagram", href: "https://www.instagram.com/spacerightprojects?igsh=MTJqMzdlenY1YXA1eQ==" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/praveengshetty?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/space-right-6464b936a?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
 ];
 
 export default function Footer() {
