@@ -1,243 +1,314 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const STAGES = [
-  { n: "01", label: "Blueprint", note: "Every project starts as measured intent." },
-  { n: "02", label: "Architecture", note: "Form follows how the space will be used." },
-  { n: "03", label: "Construction", note: "MEP, flooring and structure, executed on schedule." },
-  { n: "04", label: "Luxury Interior", note: "Material, light and finish, layered with restraint." },
-  { n: "05", label: "Final Reveal", note: "A space that performs — handed over turnkey." },
+  {
+    n: "01",
+    label: "Site Visit",
+    note: "Comprehensive inspection of structural alignments, orientations, and site parameters to lay a flawless foundation."
+  },
+  {
+    n: "02",
+    label: "Blueprint",
+    note: "Meticulous design planning, drafting precise zoning maps, architectural layouts, and 3D visual specifications."
+  },
+  {
+    n: "03",
+    label: "BOQ Preparation and Commercial",
+    note: "Granular Bill of Quantities outlining transparent cost projections, procurement lists, and timeline parameters."
+  },
+  {
+    n: "04",
+    label: "Construction and Luxury Interior",
+    note: "Flawless execution of MEP installations, structural divisions, and bespoke premium layers with complete quality control."
+  },
+  {
+    n: "05",
+    label: "Final Reveal",
+    note: "Detailed quality audit and client walkthrough followed by a seamless handover of the turnkey, performance-ready space."
+  },
 ];
 
+function renderGeometry(stageIndex: number) {
+  switch (stageIndex) {
+    case 0: // Site Visit
+      return (
+        <g stroke="#C9A66B" strokeWidth="0.8" fill="none">
+          {/* Compass / radar outer dial */}
+          <circle cx="300" cy="300" r="180" strokeDasharray="4,4" opacity="0.4" />
+          <circle cx="300" cy="300" r="100" opacity="0.6" />
+          {/* Vertical and horizontal axis */}
+          <line x1="120" y1="300" x2="480" y2="300" opacity="0.3" />
+          <line x1="300" y1="120" x2="300" y2="480" opacity="0.3" />
+          {/* Radial mapping lines */}
+          <line x1="172" y1="172" x2="428" y2="428" strokeDasharray="3,3" opacity="0.25" />
+          <line x1="428" y1="172" x2="172" y2="428" strokeDasharray="3,3" opacity="0.25" />
+          {/* Measuring point markers */}
+          <polygon points="300,115 305,120 300,125 295,120" fill="#C9A66B" />
+          <polygon points="300,475 305,480 300,485 295,480" fill="#C9A66B" />
+          <polygon points="115,300 120,305 125,300 120,295" fill="#C9A66B" />
+          <polygon points="475,300 480,305 485,300 480,295" fill="#C9A66B" />
+          {/* Target scanning circles in center */}
+          <circle cx="300" cy="300" r="24" strokeWidth="1" />
+          <circle cx="300" cy="300" r="6" fill="#C9A66B" />
+          {/* Laser distance measuring box silhouette */}
+          <rect x="250" y="220" width="100" height="50" strokeWidth="1.2" />
+          <line x1="250" y1="245" x2="350" y2="245" strokeDasharray="2,2" />
+          <text x="300" y="210" fill="#C9A66B" fontSize="10" textAnchor="middle" style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>LASER RANGE FINDER</text>
+        </g>
+      );
+    case 1: // Blueprint
+      return (
+        <g stroke="#C9A66B" strokeWidth="0.8" fill="none">
+          {/* Blueprint wall outlines */}
+          <rect x="140" y="160" width="320" height="280" strokeWidth="1.5" />
+          <rect x="140" y="160" width="160" height="140" strokeWidth="1.2" />
+          {/* Door swing arc symbol */}
+          <path d="M 300 300 A 60 60 0 0 1 360 360" strokeWidth="1.2" strokeDasharray="3,3" />
+          <line x1="300" y1="300" x2="300" y2="360" />
+          <line x1="300" y1="360" x2="360" y2="360" />
+          {/* Window elements */}
+          <rect x="200" y="155" width="40" height="10" fill="#161616" strokeWidth="1" />
+          <rect x="380" y="155" width="40" height="10" fill="#161616" strokeWidth="1" />
+          {/* Dimension lines with endpoints */}
+          <line x1="140" y1="465" x2="460" y2="465" strokeWidth="1" />
+          <line x1="140" y1="460" x2="140" y2="470" />
+          <line x1="460" y1="460" x2="460" y2="470" />
+          <text x="300" y="490" fill="#C9A66B" fontSize="12" textAnchor="middle" style={{ fontFamily: 'monospace', letterSpacing: '1px' }}>ZONING PLAN: 12,800 mm</text>
+          {/* North arrow icon in corner */}
+          <g transform="translate(420, 190)">
+            <circle cx="20" cy="20" r="16" strokeDasharray="2,2" opacity="0.5" />
+            <polygon points="20,5 25,20 20,17 15,20" fill="#C9A66B" />
+            <text x="20" y="32" fill="#C9A66B" fontSize="8" textAnchor="middle">N</text>
+          </g>
+        </g>
+      );
+    case 2: // BOQ Preparation and Commercial
+      return (
+        <g stroke="#C9A66B" strokeWidth="0.8" fill="none">
+          {/* Balancing scales representing budget/commercial alignment */}
+          <line x1="150" y1="200" x2="450" y2="200" strokeWidth="1.5" />
+          <polygon points="300,130 290,200 310,200" fill="#C9A66B" opacity="0.3" />
+          <line x1="300" y1="200" x2="300" y2="440" strokeWidth="1.5" />
+          <line x1="150" y1="200" x2="120" y2="290" />
+          <line x1="150" y1="200" x2="180" y2="290" />
+          <path d="M 110 290 Q 150 310 190 290" strokeWidth="1.2" />
+          <line x1="450" y1="200" x2="420" y2="290" />
+          <line x1="450" y1="200" x2="480" y2="290" />
+          <path d="M 410 290 Q 450 310 490 290" strokeWidth="1.2" />
+          {/* Checklist grid of BOQ line items */}
+          <g transform="translate(160, 335)">
+            <rect x="0" y="0" width="280" height="24" opacity="0.4" />
+            <rect x="0" y="24" width="280" height="24" opacity="0.4" />
+            <rect x="0" y="48" width="280" height="24" opacity="0.4" />
+            <rect x="8" y="6" width="12" height="12" />
+            <rect x="8" y="30" width="12" height="12" />
+            <rect x="8" y="54" width="12" height="12" />
+            <polyline points="10,12 13,15 18,8" strokeWidth="1.2" />
+            <polyline points="10,36 13,39 18,32" strokeWidth="1.2" />
+            <polyline points="10,60 13,63 18,56" strokeWidth="1.2" />
+            <line x1="30" y1="12" x2="160" y2="12" opacity="0.7" />
+            <line x1="30" y1="36" x2="180" y2="36" opacity="0.7" />
+            <line x1="30" y1="60" x2="140" y2="60" opacity="0.7" />
+            <circle cx="240" cy="12" r="4" fill="#C9A66B" />
+            <circle cx="240" cy="36" r="4" fill="#C9A66B" />
+            <circle cx="240" cy="60" r="4" fill="#C9A66B" />
+          </g>
+        </g>
+      );
+    case 3: // Construction and Luxury Interior
+      return (
+        <g stroke="#C9A66B" strokeWidth="0.8" fill="none">
+          {/* Structural brick courses / Wall sections */}
+          <rect x="90" y="160" width="180" height="280" strokeWidth="1.2" />
+          <line x1="90" y1="216" x2="270" y2="216" />
+          <line x1="90" y1="272" x2="270" y2="272" />
+          <line x1="90" y1="328" x2="270" y2="328" />
+          <line x1="90" y1="384" x2="270" y2="384" />
+          <line x1="150" y1="160" x2="150" y2="216" />
+          <line x1="210" y1="160" x2="210" y2="216" />
+          <line x1="120" y1="216" x2="120" y2="272" />
+          <line x1="180" y1="216" x2="180" y2="272" />
+          <line x1="240" y1="216" x2="240" y2="272" />
+          <line x1="150" y1="272" x2="150" y2="328" />
+          <line x1="210" y1="272" x2="210" y2="328" />
+          {/* MEP plumbing & conduit pipelines */}
+          <path d="M 310 160 L 310 290 Q 310 350 370 350 L 490 350" strokeWidth="2.5" />
+          <path d="M 340 160 L 340 270 Q 340 320 390 320 L 490 320" strokeWidth="1.2" />
+          {/* Sprinkler/Nozzle outline */}
+          <circle cx="310" cy="180" r="6" fill="#C9A66B" />
+          {/* Leveling ruler icon */}
+          <polygon points="360,230 440,190 460,230 380,270" opacity="0.6" />
+          <circle cx="410" cy="230" r="4" fill="#C9A66B" />
+        </g>
+      );
+    case 4: // Final Reveal
+      return (
+        <g stroke="#C9A66B" strokeWidth="0.8" fill="none">
+          {/* Grand arch reveal entry */}
+          <path d="M 180 460 L 180 240 A 120 120 0 0 1 420 240 L 420 460" strokeWidth="1.6" />
+          <path d="M 220 460 L 220 260 A 80 80 0 0 1 380 260 L 380 460" strokeWidth="0.8" strokeDasharray="3,3" />
+          {/* Chandelier / Pendant Light radiating */}
+          <line x1="300" y1="180" x2="300" y2="120" strokeWidth="1.2" />
+          <line x1="300" y1="180" x2="240" y2="130" opacity="0.4" />
+          <line x1="300" y1="180" x2="360" y2="130" opacity="0.4" />
+          <line x1="300" y1="180" x2="180" y2="180" opacity="0.4" />
+          <line x1="300" y1="180" x2="420" y2="180" opacity="0.4" />
+          {/* Sparkles / Light nodes */}
+          <circle cx="300" cy="180" r="10" fill="#C9A66B" opacity="0.8" />
+          <circle cx="240" cy="130" r="4" fill="#C9A66B" />
+          <circle cx="360" cy="130" r="4" fill="#C9A66B" />
+          {/* Handover key silhouette */}
+          <circle cx="300" cy="350" r="16" strokeWidth="1.2" />
+          <circle cx="300" cy="350" r="6" />
+          <line x1="300" y1="366" x2="300" y2="430" strokeWidth="1.5" />
+          <line x1="300" y1="390" x2="315" y2="390" strokeWidth="1.5" />
+          <line x1="300" y1="410" x2="315" y2="410" strokeWidth="1.5" />
+        </g>
+      );
+    default:
+      return null;
+  }
+}
+
 export default function ScrollJourney() {
-  const wrapRef = useRef<HTMLDivElement>(null);
   const [stage, setStage] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // Detect mobile on mount
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
+  const handleNext = () => {
+    setStage((prev) => Math.min(prev + 1, STAGES.length - 1));
+  };
 
-  // Desktop: GSAP scroll-pinned animation
-  useEffect(() => {
-    if (isMobile) return; // Skip GSAP entirely on mobile
+  const handlePrev = () => {
+    setStage((prev) => Math.max(prev - 1, 0));
+  };
 
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      const wrap = wrapRef.current;
-      if (!wrap) return;
+  return (
+    <section className="relative bg-charcoal py-24 overflow-hidden" id="journey">
+      {/* Background grid */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(247,244,238,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(247,244,238,0.05) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
 
-      const grid = wrap.querySelectorAll(".sj-grid line");
-      const structure = wrap.querySelectorAll(".sj-structure path");
-      const walls = wrap.querySelector(".sj-walls");
-      const glass = wrap.querySelector(".sj-glass");
-      const glow = wrap.querySelector(".sj-glow");
-      const floor = wrap.querySelector(".sj-floor");
-
-      gsap.set(structure, { strokeDasharray: 1000, strokeDashoffset: 1000 });
-      gsap.set(walls, { opacity: 0 });
-      gsap.set(glass, { opacity: 0 });
-      gsap.set(glow, { opacity: 0, scale: 0.9, transformOrigin: "50% 60%" });
-      gsap.set(floor, { opacity: 0 });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#journey-pin",
-          start: "top top",
-          end: "+=400%",
-          scrub: 0.6,
-          pin: true,
-          onUpdate: (self) => {
-            setStage(Math.min(4, Math.floor(self.progress * 5)));
-          },
-        },
-      });
-
-      tl.to(grid, { opacity: 0.9, duration: 1, stagger: 0.01 }, 0)
-        .to(structure, { strokeDashoffset: 0, duration: 2, stagger: 0.06 }, 0.2)
-        .to(grid, { opacity: 0.15, duration: 1 }, 1.6)
-        .to(walls, { opacity: 1, duration: 1.5 }, 1.4)
-        .to(floor, { opacity: 1, duration: 1.5 }, 1.8)
-        .to(glass, { opacity: 0.9, duration: 1.5 }, 2.6)
-        .to(glow, { opacity: 1, scale: 1, duration: 2 }, 3.2);
-    }, wrapRef);
-
-    return () => ctx.revert();
-  }, [isMobile]);
-
-  /* ──────────────────────────────────────────
-     MOBILE: Simple tap-through list
-  ────────────────────────────────────────── */
-  if (isMobile) {
-    return (
-      <section className="relative bg-charcoal py-16 px-6">
-        {/* Background grid */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(247,244,238,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(247,244,238,0.05) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-
-        <div className="relative z-10">
+      <div className="container-x relative z-10 w-full grid md:grid-cols-2 gap-12 items-center">
+        {/* Left Column: Interactive Stepper & Content */}
+        <div className="flex flex-col justify-center">
           <p className="eyebrow text-gold mb-4">The SRP Process</p>
-          <h2 className="font-display text-4xl font-light text-balance mb-10">
-            From line to
-            <span className="italic gold-gradient-text"> lived-in space.</span>
+          <h2 className="font-display text-4xl md:text-5xl font-light text-balance mb-10 leading-tight">
+            From blueprint concept to
+            <span className="italic gold-gradient-text"> flawless reality.</span>
           </h2>
 
-          {/* Tap to advance */}
-          <div className="space-y-0">
+          {/* Steps Stepper Panel */}
+          <div className="space-y-3 mb-10">
             {STAGES.map((s, i) => {
               const isActive = i === stage;
-              const isPast = i < stage;
               return (
                 <button
                   key={s.n}
                   onClick={() => setStage(i)}
-                  className={`w-full text-left flex items-start gap-4 py-5 border-b transition-all duration-400 ${
+                  className={`w-full text-left flex items-start gap-4 p-4 border rounded-xl transition-all duration-400 focus:outline-none ${
                     isActive
-                      ? "border-gold/50 opacity-100"
-                      : isPast
-                      ? "border-line/20 opacity-50"
-                      : "border-line/20 opacity-40"
+                      ? "bg-[#1C1B1A]/80 border-gold/40 shadow-lg shadow-gold/5"
+                      : "bg-transparent border-line/10 opacity-55 hover:opacity-85 hover:border-line/30"
                   }`}
                 >
                   <span className={`eyebrow mt-1 flex-shrink-0 ${isActive ? "text-gold" : "text-pearl/40"}`}>
                     {s.n}
                   </span>
                   <div>
-                    <p className={`font-display text-2xl transition-colors duration-300 ${isActive ? "text-pearl" : "text-pearl/60"}`}>
+                    <p className={`font-display text-lg md:text-xl transition-colors duration-300 ${isActive ? "text-pearl" : "text-pearl/65"}`}>
                       {s.label}
                     </p>
-                    <div
-                      className={`overflow-hidden transition-all duration-500 ${
-                        isActive ? "max-h-20 mt-2 opacity-100" : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      <p className="text-pearl/55 text-sm">{s.note}</p>
-                    </div>
+                    <AnimatePresence initial={false}>
+                      {isActive && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                          animate={{ height: "auto", opacity: 1, marginTop: 8 }}
+                          exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <p className="text-pearl/55 text-sm md:text-base leading-relaxed font-light">
+                            {s.note}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                  {/* Arrow indicator */}
-                  {isActive && (
-                    <span className="ml-auto text-gold text-lg mt-1">→</span>
-                  )}
                 </button>
               );
             })}
           </div>
 
-          {/* Next step button */}
-          {stage < STAGES.length - 1 && (
+          {/* "One by One" Button Controller */}
+          <div className="flex items-center gap-4">
             <button
-              onClick={() => setStage((s) => Math.min(s + 1, STAGES.length - 1))}
-              className="mt-8 border border-gold text-gold px-6 py-3 eyebrow w-full text-center hover:bg-gold hover:text-matte transition-colors duration-300"
+              onClick={handlePrev}
+              disabled={stage === 0}
+              className={`flex-1 border px-6 py-4 eyebrow text-center transition-all duration-300 ${
+                stage === 0
+                  ? "border-line/10 text-pearl/20 cursor-not-allowed"
+                  : "border-line text-pearl hover:border-gold hover:text-gold"
+              }`}
+            >
+              ← Previous
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={stage === STAGES.length - 1}
+              className={`flex-1 border px-6 py-4 eyebrow text-center transition-all duration-300 ${
+                stage === STAGES.length - 1
+                  ? "border-line/10 text-pearl/20 cursor-not-allowed"
+                  : "border-gold text-gold hover:bg-gold hover:text-matte"
+              }`}
             >
               Next Step →
             </button>
-          )}
-        </div>
-      </section>
-    );
-  }
-
-  /* ──────────────────────────────────────────
-     DESKTOP: Original GSAP pinned section
-  ────────────────────────────────────────── */
-  return (
-    <section
-      id="journey-pin"
-      ref={wrapRef}
-      className="relative bg-charcoal"
-    >
-      <div className="h-[100svh] sticky top-0 overflow-hidden flex items-center">
-        <div className="absolute inset-0 opacity-40">
-          <div className="h-full w-full" style={{
-            backgroundImage:
-              "linear-gradient(rgba(247,244,238,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(247,244,238,0.05) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }} />
+          </div>
         </div>
 
-        <div className="container-x relative z-10 w-full grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <p className="eyebrow text-gold mb-4">The SRP Process</p>
-            <h2 className="font-display text-4xl md:text-5xl font-light text-balance mb-8">
-              From line to
-              <span className="italic gold-gradient-text"> lived-in space.</span>
-            </h2>
+        {/* Right Column: Glowing Geometric Figure Display */}
+        <div className="relative h-[45vh] md:h-[55vh] flex items-center justify-center bg-[#101011] border border-line/35 rounded-2xl p-6 overflow-hidden">
+          {/* Radial ambient glow behind geometry */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(circle 220px at 50% 50%, rgba(201,166,107,0.09) 0%, transparent 100%)",
+            }}
+          />
 
-            <div className="space-y-5">
-              {STAGES.map((s, i) => (
-                <div
-                  key={s.n}
-                  className={`flex items-start gap-4 transition-opacity duration-500 ${
-                    i === stage ? "opacity-100" : "opacity-30"
-                  }`}
-                >
-                  <span className="eyebrow text-gold mt-1">{s.n}</span>
-                  <div>
-                    <p className="font-display text-xl md:text-2xl">{s.label}</p>
-                    {i === stage && (
-                      <p className="text-pearl/55 text-sm mt-1 max-w-sm">{s.note}</p>
-                    )}
-                  </div>
-                </div>
+          <svg viewBox="0 0 600 600" className="w-full h-full max-w-[500px] relative z-10 select-none">
+            {/* Background architectural fine grids */}
+            <g stroke="#C9A66B" strokeWidth="0.35" opacity="0.12">
+              {Array.from({ length: 13 }).map((_, i) => (
+                <line key={`h${i}`} x1="40" y1={40 + i * 43.3} x2="560" y2={40 + i * 43.3} />
               ))}
-            </div>
-          </div>
+              {Array.from({ length: 13 }).map((_, i) => (
+                <line key={`v${i}`} x1={40 + i * 43.3} y1="40" x2={40 + i * 43.3} y2="560" />
+              ))}
+            </g>
 
-          <div className="relative h-[50vh] md:h-[60vh] flex items-center justify-center">
-            <svg viewBox="0 0 600 600" className="w-full h-full max-w-[520px]">
-              <g className="sj-grid" stroke="#C9A66B" strokeWidth="0.4" opacity="0">
-                {Array.from({ length: 12 }).map((_, i) => (
-                  <line key={`h${i}`} x1="40" y1={40 + i * 46} x2="560" y2={40 + i * 46} />
-                ))}
-                {Array.from({ length: 12 }).map((_, i) => (
-                  <line key={`v${i}`} x1={40 + i * 46} y1="40" x2={40 + i * 46} y2="560" />
-                ))}
-              </g>
-
-              <g className="sj-structure" stroke="#F7F4EE" strokeWidth="1.4" fill="none">
-                <path d="M120 480 L120 220 L300 120 L480 220 L480 480 Z" />
-                <path d="M120 220 L300 320 L480 220" />
-                <path d="M300 320 L300 480" />
-                <path d="M180 480 L180 300 L230 300 L230 480" />
-                <path d="M370 480 L370 300 L420 300 L420 480" />
-              </g>
-
-              <polygon
-                className="sj-walls"
-                points="120,480 120,220 300,120 480,220 480,480"
-                fill="#1c1b1a"
-                stroke="#3a352c"
-              />
-
-              <rect className="sj-floor" x="120" y="470" width="360" height="10" fill="#B5652E" opacity="0.5" />
-
-              <g className="sj-glass" fill="#C9A66B" opacity="0">
-                <rect x="180" y="300" width="50" height="180" opacity="0.18" />
-                <rect x="370" y="300" width="50" height="180" opacity="0.18" />
-                <polygon points="120,220 300,120 480,220 480,260 300,170 120,260" opacity="0.25" />
-              </g>
-
-              <ellipse className="sj-glow" cx="300" cy="360" rx="180" ry="120" fill="url(#glowGrad)" opacity="0" />
-              <defs>
-                <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#E08A4B" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#E08A4B" stopOpacity="0" />
-                </radialGradient>
-              </defs>
-            </svg>
-          </div>
+            {/* Dynamic visual reveal */}
+            <AnimatePresence mode="wait">
+              <motion.g
+                key={stage}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              >
+                {renderGeometry(stage)}
+              </motion.g>
+            </AnimatePresence>
+          </svg>
         </div>
       </div>
     </section>
