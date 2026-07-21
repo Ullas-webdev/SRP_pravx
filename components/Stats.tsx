@@ -50,7 +50,7 @@ const VALUE_PROPS = [
 
 export default function Stats() {
   return (
-    <section id="why-us" className="relative py-28 md:py-36 bg-matte overflow-hidden border-t border-line/40">
+    <section id="why-us" className="relative py-16 md:py-24 bg-matte overflow-hidden border-t border-line/40">
       {/* Subtle background details */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-[0.03] bg-gold" />
 

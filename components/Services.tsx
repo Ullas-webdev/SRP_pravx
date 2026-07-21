@@ -15,7 +15,7 @@ const item = {
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-28 md:py-36 bg-matte">
+    <section id="services" className="relative py-16 md:py-24 bg-matte">
       <div className="container-x">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-16">
           <div>

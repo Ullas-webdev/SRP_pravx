@@ -14,7 +14,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="relative py-28 md:py-36 bg-matte overflow-hidden">
+    <section id="projects" className="relative py-16 md:py-24 bg-matte overflow-hidden">
       <div className="container-x flex items-end justify-between flex-wrap gap-6 mb-14">
         <div>
           <p className="eyebrow text-gold mb-4">Selected Work</p>

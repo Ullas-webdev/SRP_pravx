@@ -77,7 +77,7 @@ export default function ScrollJourney() {
   ────────────────────────────────────────── */
   if (isMobile) {
     return (
-      <section className="relative bg-charcoal py-20 px-6">
+      <section className="relative bg-charcoal py-16 px-6">
         {/* Background grid */}
         <div className="absolute inset-0 opacity-20 pointer-events-none"
           style={{

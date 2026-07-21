@@ -6,7 +6,7 @@ export default function Clients() {
   return (
     <section
       id="clients"
-      className="relative py-24 md:py-32 bg-matte border-y border-line overflow-hidden"
+      className="relative py-16 md:py-24 bg-matte border-y border-line overflow-hidden"
     >
       {/* subtle radial glow */}
       <div

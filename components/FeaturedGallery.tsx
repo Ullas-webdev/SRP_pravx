@@ -43,7 +43,7 @@ const featuredImages = [
 
 export default function FeaturedGallery() {
   return (
-    <section className="py-24 md:py-32 bg-matte relative border-t border-line/40">
+    <section className="py-16 md:py-24 bg-matte relative border-t border-line/40">
       <div className="container-x">
         <div className="mb-14 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>

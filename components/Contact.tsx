@@ -55,7 +55,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-28 md:py-36 bg-matte">
+    <section id="contact" className="relative py-16 md:py-24 bg-matte">
       <div className="container-x grid lg:grid-cols-2 gap-16">
         <div>
           <p className="eyebrow text-gold mb-4">Start A Project</p>
