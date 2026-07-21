@@ -286,6 +286,16 @@ export default function ScrollJourney() {
           />
 
           <svg viewBox="0 0 600 600" className="w-full h-full max-w-[540px] relative z-10 select-none">
+            {/* Background architectural fine grids */}
+            <g stroke="#C9A66B" strokeWidth="0.35" opacity="0.12">
+              {Array.from({ length: 13 }).map((_, i) => (
+                <line key={`h${i}`} x1="40" y1={40 + i * 43.3} x2="560" y2={40 + i * 43.3} />
+              ))}
+              {Array.from({ length: 13 }).map((_, i) => (
+                <line key={`v${i}`} x1={40 + i * 43.3} y1="40" x2={40 + i * 43.3} y2="560" />
+              ))}
+            </g>
+
             {/* Dynamic visual reveal */}
             <AnimatePresence>
               <motion.g
