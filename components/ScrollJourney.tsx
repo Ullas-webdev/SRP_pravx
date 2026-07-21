@@ -15,8 +15,20 @@ const STAGES = [
 export default function ScrollJourney() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [stage, setStage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Detect mobile on mount
   useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // Desktop: GSAP scroll-pinned animation
+  useEffect(() => {
+    if (isMobile) return; // Skip GSAP entirely on mobile
+
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       const wrap = wrapRef.current;
@@ -58,8 +70,88 @@ export default function ScrollJourney() {
     }, wrapRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isMobile]);
 
+  /* ──────────────────────────────────────────
+     MOBILE: Simple tap-through list
+  ────────────────────────────────────────── */
+  if (isMobile) {
+    return (
+      <section className="relative bg-charcoal py-20 px-6">
+        {/* Background grid */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(247,244,238,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(247,244,238,0.05) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+
+        <div className="relative z-10">
+          <p className="eyebrow text-gold mb-4">The SRP Process</p>
+          <h2 className="font-display text-4xl font-light text-balance mb-10">
+            From line to
+            <span className="italic gold-gradient-text"> lived-in space.</span>
+          </h2>
+
+          {/* Tap to advance */}
+          <div className="space-y-0">
+            {STAGES.map((s, i) => {
+              const isActive = i === stage;
+              const isPast = i < stage;
+              return (
+                <button
+                  key={s.n}
+                  onClick={() => setStage(i)}
+                  className={`w-full text-left flex items-start gap-4 py-5 border-b transition-all duration-400 ${
+                    isActive
+                      ? "border-gold/50 opacity-100"
+                      : isPast
+                      ? "border-line/20 opacity-50"
+                      : "border-line/20 opacity-40"
+                  }`}
+                >
+                  <span className={`eyebrow mt-1 flex-shrink-0 ${isActive ? "text-gold" : "text-pearl/40"}`}>
+                    {s.n}
+                  </span>
+                  <div>
+                    <p className={`font-display text-2xl transition-colors duration-300 ${isActive ? "text-pearl" : "text-pearl/60"}`}>
+                      {s.label}
+                    </p>
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ${
+                        isActive ? "max-h-20 mt-2 opacity-100" : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <p className="text-pearl/55 text-sm">{s.note}</p>
+                    </div>
+                  </div>
+                  {/* Arrow indicator */}
+                  {isActive && (
+                    <span className="ml-auto text-gold text-lg mt-1">→</span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Next step button */}
+          {stage < STAGES.length - 1 && (
+            <button
+              onClick={() => setStage((s) => Math.min(s + 1, STAGES.length - 1))}
+              className="mt-8 border border-gold text-gold px-6 py-3 eyebrow w-full text-center hover:bg-gold hover:text-matte transition-colors duration-300"
+            >
+              Next Step →
+            </button>
+          )}
+        </div>
+      </section>
+    );
+  }
+
+  /* ──────────────────────────────────────────
+     DESKTOP: Original GSAP pinned section
+  ────────────────────────────────────────── */
   return (
     <section
       id="journey-pin"
