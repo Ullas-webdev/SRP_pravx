@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const LINKS = [
   { label: "Services", href: "services" },
@@ -66,50 +67,13 @@ export default function Nav() {
             : "bg-transparent"
         }`}
       >
-        <nav className="container-x flex items-center justify-between h-20">
-          {/* Logo */}
-          <button
-            onClick={() => scrollToSection("top")}
-            className="flex items-baseline gap-2 focus:outline-none"
-            aria-label="Scroll to top"
-          >
-            <span className="font-display text-xl tracking-wide">SRP</span>
-            <span className="hidden sm:inline eyebrow text-pearl/50">
-              Space Right Projects
-            </span>
-          </button>
+        <nav className="container-x flex items-center h-20 gap-4">
 
-          {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-10">
-            {LINKS.map((l) => (
-              <li key={l.href}>
-                <button
-                  onClick={() => scrollToSection(l.href)}
-                  className={`eyebrow transition-colors duration-300 ${
-                    active === l.href
-                      ? "text-gold"
-                      : "text-pearl/70 hover:text-gold"
-                  }`}
-                >
-                  {l.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-
-          {/* Desktop CTA */}
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="btn-primary hidden md:inline-flex items-center border border-pearl/30 px-5 py-2.5 eyebrow hover:text-matte transition-colors duration-300"
-          >
-            Get Free Consultation
-          </button>
-
-          {/* Hamburger — always on top */}
+          {/* ── MOBILE: hamburger on the far left ── */}
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden relative z-[110] w-8 h-6 flex flex-col justify-between flex-shrink-0"
+            className="md:hidden relative z-[110] w-8 h-6 flex flex-col justify-between flex-shrink-0 mr-1"
           >
             <span
               className={`block h-px w-full bg-pearl origin-center transition-all duration-300 ${
@@ -127,6 +91,53 @@ export default function Nav() {
               }`}
             />
           </button>
+
+          {/* Logo / brand — flex-1 on mobile so it centres, auto on desktop */}
+          <button
+            onClick={() => scrollToSection("top")}
+            className="flex items-center gap-3 focus:outline-none flex-1 md:flex-none"
+            aria-label="Scroll to top"
+          >
+            {/* Square logo mark — visible on mobile, hidden on desktop */}
+            <Image
+              src="/logo.png"
+              alt="SRP logo"
+              width={100}
+              height={32}
+              className="md:hidden object-contain"
+              unoptimized
+            />
+            {/* Desktop: text-only logo */}
+            <span className="hidden md:inline font-display text-xl tracking-wide">SRP</span>
+            <span className="hidden md:inline eyebrow text-pearl/50">Space Right Projects</span>
+          </button>
+
+          {/* ── DESKTOP: centre nav links ── */}
+          <ul className="hidden md:flex items-center gap-10 flex-1 justify-center">
+            {LINKS.map((l) => (
+              <li key={l.href}>
+                <button
+                  onClick={() => scrollToSection(l.href)}
+                  className={`eyebrow transition-colors duration-300 ${
+                    active === l.href
+                      ? "text-gold"
+                      : "text-pearl/70 hover:text-gold"
+                  }`}
+                >
+                  {l.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          {/* ── DESKTOP: CTA button ── */}
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="btn-primary hidden md:inline-flex items-center border border-pearl/30 px-5 py-2.5 eyebrow hover:text-matte transition-colors duration-300"
+          >
+            Get Free Consultation
+          </button>
+
         </nav>
       </header>
 
