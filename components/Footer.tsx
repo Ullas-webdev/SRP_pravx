@@ -30,9 +30,8 @@ const COLUMNS = [
 ];
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "YouTube", href: "https://youtube.com" },
+  { label: "Instagram", href: "https://www.instagram.com/spacerightprojects?igsh=MTJqMzdlenY1YXA1eQ==" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/praveengshetty?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
 ];
 
 export default function Footer() {
