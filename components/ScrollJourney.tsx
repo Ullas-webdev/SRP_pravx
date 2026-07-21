@@ -296,17 +296,19 @@ export default function ScrollJourney() {
               ))}
             </g>
 
-            {/* Dynamic visual reveal */}
-            <AnimatePresence mode="wait">
-              <motion.g
-                key={stage}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              >
-                {renderGeometry(stage)}
-              </motion.g>
+            {/* Dynamic visual reveal - elements accumulate and blend into each other */}
+            <AnimatePresence>
+              {Array.from({ length: stage + 1 }).map((_, i) => (
+                <motion.g
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: i === stage ? 1 : 0.4 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                >
+                  {renderGeometry(i)}
+                </motion.g>
+              ))}
             </AnimatePresence>
           </svg>
         </div>
