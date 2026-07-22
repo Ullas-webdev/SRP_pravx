@@ -257,38 +257,37 @@ export default function ScrollJourney() {
                   key={s.n}
                   onClick={() => setStage(i)}
                   onMouseEnter={() => setStage(i)}
-                  className={`w-full text-left flex items-start gap-4 p-4 border rounded-xl transition-all duration-400 focus:outline-none ${
+                  className={`w-full text-left flex items-center gap-4 p-4 border rounded-xl transition-all duration-300 focus:outline-none ${
                     isActive
                       ? "bg-[#1C1B1A]/80 border-gold/40 shadow-lg shadow-gold/5"
                       : "bg-transparent border-line/10 opacity-55 hover:opacity-85 hover:border-line/30"
                   }`}
                 >
-                  <span className={`eyebrow mt-1 flex-shrink-0 ${isActive ? "text-gold" : "text-pearl/40"}`}>
+                  <span className={`eyebrow flex-shrink-0 ${isActive ? "text-gold" : "text-pearl/40"}`}>
                     {s.n}
                   </span>
-                  <div>
-                    <p className={`font-display text-lg md:text-xl transition-colors duration-300 ${isActive ? "text-pearl" : "text-pearl/65"}`}>
-                      {s.label}
-                    </p>
-                    <AnimatePresence initial={false}>
-                      {isActive && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                          animate={{ height: "auto", opacity: 1, marginTop: 8 }}
-                          exit={{ height: 0, opacity: 0, marginTop: 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="overflow-hidden"
-                        >
-                          <p className="text-pearl/55 text-sm md:text-base leading-relaxed font-light">
-                            {s.note}
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                  <span className={`font-display text-lg md:text-xl transition-colors duration-300 ${isActive ? "text-pearl" : "text-pearl/65"}`}>
+                    {s.label}
+                  </span>
                 </button>
               );
             })}
+          </div>
+
+          {/* Dedicated Description Card (Stable height to prevent page shaking) */}
+          <div className="mt-6 min-h-[96px] p-5 rounded-xl border border-line bg-[#161616]/50 flex items-center relative overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={stage}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="text-pearl/60 text-sm md:text-base leading-relaxed font-light"
+              >
+                {STAGES[stage].note}
+              </motion.p>
+            </AnimatePresence>
           </div>
         </div>
 
