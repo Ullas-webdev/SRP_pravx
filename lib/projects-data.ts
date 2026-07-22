@@ -42,7 +42,7 @@ export const PROJECTS: ProjectData[] = [
     timeline: "8 Days / site",
     tech: "Cold Storage MEP · Epoxy Flooring · Signage",
     detail: "15+ rider delivery sheds built across Bengaluru in a span of 10 days.",
-    image: "/projects/zepto.png",
+    image: "/projects/zepto.jpg",
     accentColor: "#752BFF",
     challenge: [
       "Operating at the bleeding edge of the 10-minute delivery promise, Zepto's infrastructure requirements are intensely specialized. Their facilities demand extreme electrical loads for extensive cold storage and flawlessly durable flooring to withstand constant heavy cart traffic.",

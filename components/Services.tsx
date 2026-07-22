@@ -69,64 +69,69 @@ export default function Services() {
           ))}
         </motion.div>
 
-        {/* Specialized Divisions Unified Banner */}
+        {/* Specialized Divisions Slider */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="card-glass rounded-xl p-8 md:p-12 mt-12 border border-gold/20 relative overflow-hidden bg-gradient-to-br from-charcoal/30 via-[#121213] to-matte/90"
+          className="mt-12"
         >
-          {/* Decorative glowing background circle */}
-          <div
-            className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full pointer-events-none opacity-20"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(201,166,107,0.15) 0%, transparent 80%)",
-            }}
-          />
-
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 relative z-10">
-            {/* Division 01: F&B */}
-            <div className="flex flex-col justify-between">
-              <div>
-                <span className="eyebrow text-gold text-xs tracking-widest block mb-4">Specialized Division 01</span>
-                <h3 className="font-display text-2xl md:text-3xl font-light text-white mb-4">
-                  Commercial Kitchen &amp; Restaurant Setup
-                </h3>
-                <p className="text-pearl/60 text-sm md:text-base font-light leading-relaxed mb-6">
-                  We engineer and execute high-performance industrial kitchen layouts, 
-                  integrated exhaust/HVAC solutions, fire-suppression systems, and luxury dining interiors 
-                  designed to withstand high-volume restaurant service.
-                </p>
-              </div>
-              <Link
-                href="#contact"
-                className="text-gold hover:text-white text-sm eyebrow tracking-wider transition-colors duration-300 inline-flex items-center gap-2 mt-4"
+          <div className="flex overflow-x-auto gap-6 snap-x snap-mandatory pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+            {[
+              {
+                title: "Commercial Kitchen & Restaurant Setup",
+                description: "We engineer and execute high-performance industrial kitchen layouts, integrated exhaust/HVAC solutions, fire-suppression systems, and luxury dining interiors designed to withstand high-volume restaurant service.",
+                link: "Consult Division"
+              },
+              {
+                title: "Fabrication Work",
+                description: "Heavy-duty structural fabrication work tailored for industrial and commercial environments, built for optimal durability and precision.",
+                link: "Request Quote"
+              },
+              {
+                title: "Aluminium Partitions",
+                description: "High-quality aluminium and Aerocon partitions for modern offices and commercial spaces. Sleek design with fast installation.",
+                link: "Request Quote"
+              },
+              {
+                title: "Wall Panel Work",
+                description: "Premium acoustic and decorative wall paneling solutions that elevate interior aesthetics while improving sound insulation.",
+                link: "Request Quote"
+              },
+              {
+                title: "Electrical Work",
+                description: "Comprehensive MEP and electrical solutions, including high-load panel distribution, industrial lighting, and safety systems.",
+                link: "Request Quote"
+              }
+            ].map((div, i) => (
+              <div 
+                key={i}
+                className="snap-start shrink-0 w-[85vw] md:w-[400px] card-glass rounded-xl p-8 border border-gold/20 relative overflow-hidden bg-gradient-to-br from-charcoal/30 via-[#121213] to-matte/90 flex flex-col justify-between"
               >
-                Consult Division <span>→</span>
-              </Link>
-            </div>
-
-            {/* Division 02: Partitions */}
-            <div className="flex flex-col justify-between md:pl-16 border-t md:border-t-0 md:border-l border-pearl/10 pt-8 md:pt-0">
-              <div>
-                <span className="eyebrow text-gold text-xs tracking-widest block mb-4">Specialized Division 02</span>
-                <h3 className="font-display text-2xl md:text-3xl font-light text-white mb-4">
-                  Partitions &amp; Custom Fabrication
-                </h3>
-                <p className="text-pearl/60 text-sm md:text-base font-light leading-relaxed mb-6">
-                  We plan and execute high-quality <strong>Aluminium partitions</strong>, <strong>Aerocon partitions</strong>, 
-                  and heavy-duty <strong>structural fabrication work</strong>. Built for optimal durability and delivered at highly <strong>affordable costs</strong>.
-                </p>
+                <div
+                  className="absolute -right-24 -bottom-24 w-64 h-64 rounded-full pointer-events-none opacity-20"
+                  style={{
+                    background: "radial-gradient(circle, rgba(201,166,107,0.15) 0%, transparent 80%)",
+                  }}
+                />
+                <div className="relative z-10">
+                  <span className="eyebrow text-gold text-xs tracking-widest block mb-4">Specialized Division 0{i + 1}</span>
+                  <h3 className="font-display text-2xl font-light text-white mb-4">
+                    {div.title}
+                  </h3>
+                  <p className="text-pearl/60 text-sm font-light leading-relaxed mb-6">
+                    {div.description}
+                  </p>
+                </div>
+                <Link
+                  href="#contact"
+                  className="relative z-10 text-gold hover:text-white text-sm eyebrow tracking-wider transition-colors duration-300 inline-flex items-center gap-2 mt-auto"
+                >
+                  {div.link} <span>→</span>
+                </Link>
               </div>
-              <Link
-                href="#contact"
-                className="text-gold hover:text-white text-sm eyebrow tracking-wider transition-colors duration-300 inline-flex items-center gap-2 mt-4"
-              >
-                Request Quote <span>→</span>
-              </Link>
-            </div>
+            ))}
           </div>
         </motion.div>
       </div>
