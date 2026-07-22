@@ -54,8 +54,8 @@ export const SERVICES: ServiceData[] = [
       "Office space interior",
       "Salon setup",
       "Kitchen and restaurant setup",
-      "Zoning & workflow concept development",
-      "Zero compromise in structural quality",
+      "Aluminium & Aerocon partitioning",
+      "Cost-effective custom fabrication",
     ],
     stats: [
       { value: "150+", label: "Commercial fit-outs" },
