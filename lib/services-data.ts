@@ -50,12 +50,12 @@ export const SERVICES: ServiceData[] = [
       "Our end-to-end accountability means a single point of contact manages design, construction, MEP and compliance. You focus on business continuity while we deliver your space on time and within budget.",
     ],
     deliverables: [
+      "Completed projects 10+",
+      "Office space interior",
+      "Salon setup",
+      "Kitchen and restaurant setup",
       "Zoning & workflow concept development",
       "Zero compromise in structural quality",
-      "Fast-track timeline delivery",
-      "In-house MEP & civil team",
-      "Complete turnkey for corporate offices",
-      "Full compliance & regulatory clearances",
     ],
     stats: [
       { value: "150+", label: "Commercial fit-outs" },
