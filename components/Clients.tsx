@@ -22,7 +22,7 @@ export default function Clients() {
         <div className="mb-14 text-center">
           <p className="eyebrow text-gold mb-4">Trusted By</p>
           <h2 className="font-display text-3xl md:text-4xl font-light text-balance">
-            Brands that chose to build with SRP.
+            Brands that choose to build with SRP.
           </h2>
         </div>
 

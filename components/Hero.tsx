@@ -31,26 +31,32 @@ function ArchLines({ index }: { index: number }) {
   const variants = [
     // Variant 0: Modern House Contour / Building Structural Truss (Building a Home)
     <g key="0" stroke="#C9A66B" strokeWidth="0.75" fill="none" opacity="0.55">
-      <polygon points="100,500 100,280 300,100 500,280 500,500" />
-      <line x1="50" y1="500" x2="550" y2="500" strokeWidth="1.5" />
-      <line x1="100" y1="380" x2="500" y2="380" />
-      <line x1="100" y1="280" x2="500" y2="280" />
-      <line x1="200" y1="280" x2="200" y2="500" />
-      <line x1="300" y1="100" x2="300" y2="500" />
-      <line x1="400" y1="280" x2="400" y2="500" />
-      <line x1="100" y1="280" x2="300" y2="280" />
-      <line x1="300" y1="280" x2="500" y2="280" />
-      <line x1="200" y1="190" x2="200" y2="280" strokeDasharray="3,3" />
-      <line x1="400" y1="190" x2="400" y2="280" strokeDasharray="3,3" />
-      <line x1="100" y1="280" x2="200" y2="190" />
-      <line x1="300" y1="100" x2="200" y2="280" />
-      <line x1="300" y1="100" x2="400" y2="280" />
-      <line x1="500" y1="280" x2="400" y2="190" />
-      <rect x="135" y="310" width="30" height="40" opacity="0.4" />
-      <rect x="435" y="310" width="30" height="40" opacity="0.4" />
-      <rect x="235" y="410" width="30" height="60" opacity="0.4" />
-      <line x1="100" y1="500" x2="200" y2="380" opacity="0.2" />
-      <line x1="500" y1="500" x2="400" y2="380" opacity="0.2" />
+      {/* Glowing aura circles */}
+      <circle cx="300" cy="300" r="180" strokeDasharray="3,3" opacity="0.2" />
+      <circle cx="300" cy="300" r="120" strokeDasharray="1,2" opacity="0.3" />
+      {/* Bulb outer glass shell */}
+      <path d="M 240 240 C 240 180, 360 180, 360 240 C 360 290, 330 320, 330 360 L 270 360 C 270 320, 240 290, 240 240 Z" strokeWidth="1.2" />
+      {/* Screw base cap */}
+      <rect x="270" y="360" width="60" height="10" rx="3" />
+      <rect x="273" y="370" width="54" height="8" rx="2" />
+      <rect x="276" y="378" width="48" height="8" rx="2" />
+      <path d="M 285 386 L 315 386 L 300 396 Z" fill="#C9A66B" opacity="0.4" />
+      {/* Filament mount wires */}
+      <line x1="285" y1="360" x2="285" y2="280" />
+      <line x1="315" y1="360" x2="315" y2="280" />
+      <line x1="285" y1="280" x2="295" y2="270" />
+      <line x1="315" y1="280" x2="305" y2="270" />
+      {/* Glowing filament coil */}
+      <path d="M 295 270 Q 300 250, 305 270" strokeWidth="1.5" />
+      {/* Radiating light rays */}
+      <line x1="300" y1="160" x2="300" y2="130" />
+      <line x1="160" y1="300" x2="130" y2="300" />
+      <line x1="440" y1="300" x2="470" y2="300" />
+      <line x1="200" y1="200" x2="180" y2="180" />
+      <line x1="400" y1="200" x2="420" y2="180" />
+      <line x1="200" y1="400" x2="180" y2="420" opacity="0.2" />
+      <line x1="400" y1="400" x2="420" y2="420" opacity="0.2" />
+      <text x="300" y="440" fill="#C9A66B" fontSize="10" textAnchor="middle" style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>LIGHTING FIXTURE</text>
     </g>,
 
     // Variant 1: Modular Kitchen Cabinetry Elevation (Kitchen Design)
@@ -81,26 +87,24 @@ function ArchLines({ index }: { index: number }) {
 
     // Variant 2: Electrical Wiring Schematics & Lighting Fixtures (MEP Systems)
     <g key="2" stroke="#C9A66B" strokeWidth="0.75" fill="none" opacity="0.55">
-      <circle cx="300" cy="300" r="230" strokeDasharray="4,4" opacity="0.2" />
-      <circle cx="300" cy="300" r="150" strokeDasharray="2,2" opacity="0.25" />
-      <line x1="70" y1="300" x2="530" y2="300" />
-      <line x1="300" y1="70" x2="300" y2="530" />
-      <path d="M 150 150 L 300 200 L 450 150" strokeDasharray="3,3" />
-      <path d="M 150 450 L 300 400 L 450 450" strokeDasharray="3,3" />
-      <circle cx="300" cy="200" r="8" fill="#C9A66B" />
-      <circle cx="300" cy="400" r="8" fill="#C9A66B" />
-      <circle cx="150" cy="300" r="8" fill="#C9A66B" />
-      <circle cx="450" cy="300" r="8" fill="#C9A66B" />
-      <line x1="150" y1="300" x2="150" y2="350" />
-      <polygon points="140,350 160,350 150,365" fill="#C9A66B" />
-      <line x1="450" y1="300" x2="450" y2="350" />
-      <polygon points="440,350 460,350 450,365" fill="#C9A66B" />
-      <line x1="300" y1="200" x2="300" y2="270" />
-      <circle cx="300" cy="275" r="5" fill="#C9A66B" />
-      <polyline points="150,150 100,150 100,200" />
-      <polyline points="450,150 500,150 500,200" />
-      <polyline points="150,450 100,450 100,400" />
-      <polyline points="450,450 500,450 500,400" />
+      {/* Wall socket plate */}
+      <rect x="180" y="150" width="240" height="240" rx="20" strokeWidth="1.5" />
+      <rect x="200" y="170" width="200" height="200" rx="10" opacity="0.4" />
+      {/* Circular receptacle cover */}
+      <circle cx="300" cy="270" r="70" strokeWidth="1.2" />
+      {/* Three pin socket holes */}
+      <circle cx="300" cy="230" r="10" fill="#C9A66B" opacity="0.6" /> {/* Ground */}
+      <circle cx="260" cy="285" r="8" fill="#C9A66B" opacity="0.6" /> {/* Neutral */}
+      <circle cx="340" cy="285" r="8" fill="#C9A66B" opacity="0.6" /> {/* Live */}
+      {/* Toggle switch at the top */}
+      <rect x="280" y="100" width="40" height="30" rx="4" />
+      <line x1="280" y1="115" x2="320" y2="115" strokeDasharray="2,2" />
+      <circle cx="300" cy="110" r="3" fill="#C9A66B" />
+      {/* Wiring schematic lines flowing out from back */}
+      <path d="M 300 230 L 300 50 L 50 50" strokeDasharray="3,3" opacity="0.3" />
+      <path d="M 260 285 L 260 480 L 50 480" strokeDasharray="3,3" opacity="0.3" />
+      <path d="M 340 285 L 340 480 L 550 480" strokeDasharray="3,3" opacity="0.3" />
+      <text x="300" y="430" fill="#C9A66B" fontSize="10" textAnchor="middle" style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>POWER DIST. OUTLET</text>
     </g>,
 
     // Variant 3: Architectural Interior Isometric Room Corner (Space & Interiors)
