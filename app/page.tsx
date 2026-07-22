@@ -9,7 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import PageShell from "@/components/PageShell";
 import FeaturedGallery from "@/components/FeaturedGallery";
-
+import CalloutBanner from "@/components/CalloutBanner";
 export default function Home() {
   return (
     <PageShell>
@@ -19,6 +19,7 @@ export default function Home() {
         <ScrollJourney />
         <Services />
         <Projects />
+        <CalloutBanner />
         <Stats />
         <FeaturedGallery />
         <Clients />
