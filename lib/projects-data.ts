@@ -18,7 +18,7 @@ export const PROJECTS: ProjectData[] = [
     slug: "blinkit",
     client: "Blinkit",
     type: "Dark Store Network",
-    area: "1 Lakh plus sqft",
+    area: "100,000+ sqft",
     timeline: "8 Days / site",
     tech: "Complete Electrical / Partition work / Fabrication work",
     detail: "25+ stores delivered across South India.",
