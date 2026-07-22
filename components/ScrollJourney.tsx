@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const STAGES = [
@@ -218,13 +218,14 @@ function renderGeometry(stageIndex: number) {
 export default function ScrollJourney() {
   const [stage, setStage] = useState(0);
 
-  const handleNext = () => {
-    setStage((prev) => Math.min(prev + 1, STAGES.length - 1));
-  };
-
-  const handlePrev = () => {
-    setStage((prev) => Math.max(prev - 1, 0));
-  };
+  // Auto-play cycling effect: advances stage every 1.5 seconds.
+  // Re-creates the timer whenever stage changes, ensuring interaction reset.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setStage((prev) => (prev + 1) % STAGES.length);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [stage]);
 
   return (
     <section className="relative bg-charcoal py-24 overflow-hidden" id="journey">
@@ -248,13 +249,14 @@ export default function ScrollJourney() {
           </h2>
 
           {/* Steps Stepper Panel */}
-          <div className="space-y-3 mb-10">
+          <div className="space-y-3">
             {STAGES.map((s, i) => {
               const isActive = i === stage;
               return (
                 <button
                   key={s.n}
                   onClick={() => setStage(i)}
+                  onMouseEnter={() => setStage(i)}
                   className={`w-full text-left flex items-start gap-4 p-4 border rounded-xl transition-all duration-400 focus:outline-none ${
                     isActive
                       ? "bg-[#1C1B1A]/80 border-gold/40 shadow-lg shadow-gold/5"
@@ -287,32 +289,6 @@ export default function ScrollJourney() {
                 </button>
               );
             })}
-          </div>
-
-          {/* "One by One" Button Controller */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={handlePrev}
-              disabled={stage === 0}
-              className={`flex-1 border px-6 py-4 eyebrow text-center transition-all duration-300 ${
-                stage === 0
-                  ? "border-line/10 text-pearl/20 cursor-not-allowed"
-                  : "border-line text-pearl hover:border-gold hover:text-gold"
-              }`}
-            >
-              ← Previous
-            </button>
-            <button
-              onClick={handleNext}
-              disabled={stage === STAGES.length - 1}
-              className={`flex-1 border px-6 py-4 eyebrow text-center transition-all duration-300 ${
-                stage === STAGES.length - 1
-                  ? "border-line/10 text-pearl/20 cursor-not-allowed"
-                  : "border-gold text-gold hover:bg-gold hover:text-matte"
-              }`}
-            >
-              Next Step →
-            </button>
           </div>
         </div>
 
