@@ -75,20 +75,20 @@ export const PROJECTS: ProjectData[] = [
   {
     slug: "weschool",
     client: "WeSchool",
-    type: "Institutional Interior",
+    type: "Institutional Civil & Interior",
     area: "40,000 sqft",
     timeline: "8 Days / site",
-    tech: "MEP · Acoustic Flooring · Furniture",
-    detail: "A full academic campus interior built for daily high-footfall use.",
+    tech: "Acoustics · Pavement Civil Works · MEP",
+    detail: "Academic campus interior fit-out and external pavement civil works at Electronic City.",
     image: "/projects/weschool.png",
     accentColor: "#003B5C",
     challenge: [
-      "Educational institutions face a unique set of stresses: thousands of students, massive acoustic challenges in large lecture halls, and the need for environments that foster intense focus while enduring decades of heavy daily wear.",
-      "WeSchool needed to transform a massive 40,000 sqft space into a state-of-the-art academic campus within a rigid 10-week summer break window. Missing the deadline meant disrupting the academic year.",
+      "WeSchool required a comprehensive institutional transformation of their Electronic City campus, demanding high-durability internal learning spaces coupled with external campus civil works.",
+      "A key challenge was the engineering and execution of extensive external pavement work within the active campus grounds while ensuring zero disruptions to the academic facility's daily logistics and student foot traffic.",
     ],
     srpDifference: [
-      "SRP took complete ownership of the campus transformation. We deployed specialized acoustic flooring and ceiling baffles to drastically reduce echo in cavernous lecture spaces, something standard designers often overlook.",
-      "Our turnkey approach meant civil works, massive HVAC ducting, and custom student furniture procurement happened in parallel, not sequentially. We didn't just design a beautiful campus; we engineered an environment built for institutional endurance, delivered exactly on time for the new semester.",
+      "We managed both internal acoustic interiors and the external pavement civil works under a single turnkey contract, eliminating the need to coordinate separate civil contractors.",
+      "Our civil engineering division executed the campus pavement restoration using high-strength, load-bearing interlocking blocks with rapid base preparation, completing all walkways with minimal disruption.",
     ],
   },
   {
