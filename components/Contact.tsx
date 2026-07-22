@@ -69,6 +69,14 @@ export default function Contact() {
           </p>
 
           <div className="space-y-6 mb-10">
+            <a href="tel:+919663813861" className="flex items-center gap-4 group">
+              <span className="w-11 h-11 rounded-full border border-pearl/25 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
+                ☎
+              </span>
+              <span className="text-pearl/75 group-hover:text-gold transition-colors duration-300">
+                +91 9663813861
+              </span>
+            </a>
             <a href="tel:+918884887878" className="flex items-center gap-4 group">
               <span className="w-11 h-11 rounded-full border border-pearl/25 flex items-center justify-center group-hover:border-gold group-hover:text-gold transition-colors duration-300">
                 ☎
