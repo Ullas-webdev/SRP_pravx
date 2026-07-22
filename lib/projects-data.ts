@@ -59,17 +59,17 @@ export const PROJECTS: ProjectData[] = [
     type: "Retail Pharmacy Interior",
     area: "3,200 sqft",
     timeline: "8 Days / site",
-    tech: "Retail Fixtures · Branding · Lighting",
-    detail: "Brand-consistent retail interior for a national pharmacy rollout.",
+    tech: "Retail Fixtures · Sourcing · Maintenance",
+    detail: "Complete interior fit-out, site maintenance, and commercial asset sourcing.",
     image: "/projects/tata1mg.png",
     accentColor: "#FF5E4D",
     challenge: [
-      "Tata 1mg required a physical retail environment that translated their massive digital trust into a tangible, brick-and-mortar pharmacy experience. The design had to feel clinical yet approachable, highly functional for pharmacists, and flawlessly consistent with their national brand guidelines.",
-      "They needed a rollout partner who could deliver a premium retail finish within a strict 3-week window to minimize rent burn before opening.",
+      "Tata 1mg required a multi-faceted retail partner capable of executing high-finish pharmacy interiors while managing the ongoing repair and maintenance of their existing operational facilities.",
+      "Additionally, the scope demanded seamless logistics for sourcing and supplying critical commercial refrigeration assets (such as deep freezers) and specialized AC/climate-control systems.",
     ],
     srpDifference: [
-      "Unlike generic retail fit-outs, SRP integrated the branding directly into the architectural shell. Illuminated fascias and directional signage were pre-wired during the dry-walling phase, not tacked on as an afterthought.",
-      "Our dedicated joinery workshop pre-fabricated all retail fixtures and dispensing counters off-site. When our installation team arrived, it was an assembly operation rather than a construction site, allowing us to hit the 3-week target with a surgical level of precision.",
+      "We took on full site accountability, handling everything from new pharmacy interior work to the rapid maintenance and structural repairs of existing locations with zero operational downtime.",
+      "By leveraging our integrated supply chain, we directly supplied and installed all essential retail assets, including industrial deep freezers and HVAC/AC units, ensuring a single point of turnkey accountability.",
     ],
   },
   {
