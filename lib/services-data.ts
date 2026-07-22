@@ -36,7 +36,7 @@ export const SERVICES: ServiceData[] = [
       { value: "100%", label: "In-house execution" },
     ],
     accentColor: "#C9A66B",
-    bgImage: "/services/interiors.png",
+    bgImage: "/services/interiors.jpg",
     related: ["commercial-spaces", "flooring", "turnkey-solutions"],
   },
   {
@@ -63,7 +63,7 @@ export const SERVICES: ServiceData[] = [
       { value: "Zero", label: "Cost overruns guarantee" },
     ],
     accentColor: "#8BAFC9",
-    bgImage: "/services/commercial.png",
+    bgImage: "/services/commercial.jpg",
     related: ["interiors", "mep-solutions", "turnkey-solutions"],
   },
   {
@@ -90,7 +90,7 @@ export const SERVICES: ServiceData[] = [
       { value: "15+", label: "Cities operational" },
     ],
     accentColor: "#6BB5C9",
-    bgImage: "/services/darkstores.png",
+    bgImage: "/services/darkstores.jpg",
     related: ["mep-solutions", "commercial-spaces", "turnkey-solutions"],
   },
   {
@@ -144,7 +144,7 @@ export const SERVICES: ServiceData[] = [
       { value: "15 yr", label: "Design life standard" },
     ],
     accentColor: "#C9B96B",
-    bgImage: "/services/flooring.png",
+    bgImage: "/services/flooring.jpg",
     related: ["interiors", "painting", "turnkey-solutions"],
   },
   {
@@ -171,7 +171,7 @@ export const SERVICES: ServiceData[] = [
       { value: "ISO", label: "Approved coating brands" },
     ],
     accentColor: "#C9886B",
-    bgImage: "/services/painting.png",
+    bgImage: "/services/painting.jpg",
     related: ["interiors", "flooring", "turnkey-solutions"],
   },
   {
