@@ -79,155 +79,75 @@ function ArchLines({ index }: { index: number }) {
       <circle cx="490" cy="125" r="10" opacity="0.3" />
     </g>,
 
-    // Variant 2: Industrial Electrical Panel Schematic
-    <g key="2" stroke="#C9A66B" strokeWidth="0.8" fill="none" opacity="0.6">
-      {/* Outer panel outline */}
-      <rect x="150" y="100" width="300" height="400" rx="8" strokeWidth="1.2" />
-      <line x1="150" y1="180" x2="450" y2="180" />
-      <line x1="150" y1="420" x2="450" y2="420" />
+    // Variant 2: Light Bulb Geometry (representing Electrical and Lighting)
+    <g key="2" stroke="#C9A66B" strokeWidth="0.8" fill="none" opacity="0.65">
+      {/* Outer radiating aura lines */}
+      <line x1="300" y1="100" x2="300" y2="60" strokeWidth="1.2" />
+      <line x1="420" y1="160" x2="450" y2="130" strokeWidth="1.2" />
+      <line x1="180" y1="160" x2="150" y2="130" strokeWidth="1.2" />
+      <line x1="450" y1="260" x2="490" y2="260" strokeWidth="1.2" />
+      <line x1="150" y1="260" x2="110" y2="260" strokeWidth="1.2" />
       
-      {/* Digital status screen */}
-      <rect x="190" y="120" width="220" height="40" rx="4" />
-      <path d="M 210 140 Q 230 125 250 140 T 290 140" strokeWidth="1.2" opacity="0.8" />
-      <circle cx="340" cy="140" r="4" fill="#C9A66B" />
-      <circle cx="360" cy="140" r="4" fill="#C9A66B" />
-      <circle cx="380" cy="140" r="4" fill="#C9A66B" />
-      
-      {/* Circuit Breakers Stack */}
-      <g transform="translate(180, 200)">
-        {/* Breaker 1 */}
-        <rect x="0" y="0" width="240" height="30" rx="2" />
-        <line x1="80" y1="0" x2="80" y2="30" />
-        <circle cx="40" cy="15" r="5" fill="#C9A66B" />
-        <line x1="120" y1="15" x2="200" y2="15" strokeDasharray="3,3" />
-        {/* Toggle switch in ON position */}
-        <line x1="80" y1="15" x2="65" y2="5" strokeWidth="1.5" />
-        
-        {/* Breaker 2 */}
-        <rect x="0" y="45" width="240" height="30" rx="2" />
-        <line x1="80" y1="45" x2="80" y2="75" />
-        <circle cx="40" cy="60" r="5" fill="#C9A66B" />
-        <line x1="120" y1="60" x2="200" y2="60" strokeDasharray="3,3" />
-        {/* Toggle switch in OFF position */}
-        <line x1="80" y1="60" x2="95" y2="70" strokeWidth="1.5" />
-        
-        {/* Breaker 3 */}
-        <rect x="0" y="90" width="240" height="30" rx="2" />
-        <line x1="80" y1="90" x2="80" y2="120" />
-        <circle cx="40" cy="105" r="5" fill="#C9A66B" />
-        <line x1="120" y1="105" x2="200" y2="105" strokeDasharray="3,3" />
-        <line x1="80" y1="105" x2="65" y2="95" strokeWidth="1.5" />
-      </g>
-      
-      {/* Wiring Bus & Ground Symbols */}
-      <g transform="translate(180, 350)">
-        <line x1="20" y1="0" x2="220" y2="0" strokeWidth="1.5" />
-        {/* Junction points */}
-        <circle cx="40" cy="0" r="4" fill="#C9A66B" />
-        <circle cx="120" cy="0" r="4" fill="#C9A66B" />
-        <circle cx="200" cy="0" r="4" fill="#C9A66B" />
-        
-        {/* Ground symbol 1 */}
-        <line x1="40" y1="0" x2="40" y2="30" />
-        <line x1="30" y1="30" x2="50" y2="30" />
-        <line x1="33" y1="34" x2="47" y2="34" />
-        <line x1="37" y1="38" x2="43" y2="38" />
+      {/* Sparkle symbols */}
+      <path d="M 425 100 L 428 105 L 433 106 L 428 107 L 425 112 L 422 107 L 417 106 L 422 105 Z" fill="#C9A66B" />
+      <path d="M 175 100 L 178 105 L 183 106 L 178 107 L 175 112 L 172 107 L 167 106 L 172 105 Z" fill="#C9A66B" />
 
-        {/* Ground symbol 2 */}
-        <line x1="200" y1="0" x2="200" y2="30" />
-        <line x1="190" y1="30" x2="210" y2="30" />
-        <line x1="193" y1="34" x2="207" y2="34" />
-        <line x1="197" y1="38" x2="203" y2="38" />
-      </g>
+      {/* Main glass contour */}
+      <path d="M 210 260 A 90 90 0 1 1 390 260 C 390 320, 345 350, 345 390 L 255 390 C 255 350, 210 320, 210 260 Z" strokeWidth="1.3" />
       
-      {/* HVAC/AC cooling fan emblem at bottom */}
-      <circle cx="300" cy="458" r="22" strokeWidth="1" />
-      <path d="M 300 436 C 308 446 312 458 300 458 C 288 458 292 446 300 436 Z" fill="#C9A66B" opacity="0.3" />
-      <path d="M 300 480 C 292 470 288 458 300 458 C 312 458 308 470 300 480 Z" fill="#C9A66B" opacity="0.3" />
-      <path d="M 278 458 C 288 450 300 446 300 458 C 300 470 288 466 278 458 Z" fill="#C9A66B" opacity="0.3" />
-      <path d="M 322 458 C 312 466 300 470 300 458 C 300 446 312 450 322 458 Z" fill="#C9A66B" opacity="0.3" />
+      {/* Screw Base */}
+      <rect x="255" y="390" width="90" height="12" rx="4" />
+      <rect x="260" y="402" width="80" height="12" rx="4" />
+      <rect x="265" y="414" width="70" height="12" rx="4" />
+      {/* Bottom contact point */}
+      <path d="M 275 426 L 325 426 C 320 440, 280 440, 275 426 Z" fill="#C9A66B" opacity="0.35" />
+
+      {/* Filaments and support wires */}
+      <line x1="282" y1="390" x2="282" y2="290" />
+      <line x1="318" y1="390" x2="318" y2="290" />
+      <line x1="300" y1="390" x2="300" y2="310" strokeDasharray="2,2" opacity="0.5" />
+      {/* Loop connector wire */}
+      <path d="M 282 290 L 293 260 L 307 260 L 318 290" strokeWidth="1.4" />
+      
+      {/* Inner glass reflection arc */}
+      <path d="M 235 220 A 70 70 0 0 1 365 220" strokeDasharray="3,3" opacity="0.4" />
     </g>,
 
-    // Variant 3: Electronics Rack Cabinet Schematic
-    <g key="3" stroke="#C9A66B" strokeWidth="0.8" fill="none" opacity="0.6">
-      {/* Server Cabinet Outer Frame */}
-      <rect x="140" y="80" width="320" height="440" rx="6" strokeWidth="1.5" />
-      {/* Rack rails */}
-      <line x1="160" y1="80" x2="160" y2="520" strokeWidth="0.5" strokeDasharray="3,3" />
-      <line x1="440" y1="80" x2="440" y2="520" strokeWidth="0.5" strokeDasharray="3,3" />
+    // Variant 3: Power Drill Machine Geometry (representing Fabrication and Construction)
+    <g key="3" stroke="#C9A66B" strokeWidth="0.8" fill="none" opacity="0.65">
+      {/* Main Motor Housing */}
+      <rect x="180" y="190" width="180" height="96" rx="14" strokeWidth="1.3" fill="#161616" />
+      <line x1="210" y1="190" x2="210" y2="286" strokeWidth="0.6" strokeDasharray="2,2" />
       
-      {/* Unit 1: Power Unit */}
-      <g transform="translate(170, 110)">
-        <rect x="0" y="0" width="260" height="50" rx="3" strokeWidth="1" fill="#161616" />
-        <circle cx="30" cy="25" r="10" />
-        <path d="M 30 18 L 30 32 M 23 25 L 37 25" />
-        {/* Heat vents slots */}
-        <line x1="80" y1="15" x2="80" y2="35" />
-        <line x1="90" y1="15" x2="90" y2="35" />
-        <line x1="100" y1="15" x2="100" y2="35" />
-        <line x1="110" y1="15" x2="110" y2="35" />
-        <line x1="120" y1="15" x2="120" y2="35" />
-        {/* Connection jack */}
-        <rect x="160" y="15" width="20" height="20" />
-        <circle cx="170" cy="25" r="3" fill="#C9A66B" />
-        <rect x="200" y="15" width="40" height="20" rx="1" />
-        <text x="220" y="28" fill="#C9A66B" fontSize="8" textAnchor="middle" stroke="none" style={{ fontFamily: 'monospace' }}>230V</text>
-      </g>
-      
-      {/* Unit 2: Server Blade */}
-      <g transform="translate(170, 190)">
-        <rect x="0" y="0" width="260" height="70" rx="3" fill="#161616" />
-        <circle cx="20" cy="20" r="3" fill="#C9A66B" />
-        <circle cx="20" cy="35" r="3" fill="#C9A66B" />
-        <circle cx="20" cy="50" r="3" fill="#C9A66B" />
-        
-        {/* Network port arrays */}
-        <rect x="50" y="15" width="16" height="12" />
-        <rect x="72" y="15" width="16" height="12" />
-        <rect x="94" y="15" width="16" height="12" />
-        <rect x="116" y="15" width="16" height="12" />
-        
-        <rect x="50" y="38" width="16" height="12" />
-        <rect x="72" y="38" width="16" height="12" />
-        <rect x="94" y="38" width="16" height="12" />
-        <rect x="116" y="38" width="16" height="12" />
-        
-        {/* CPU cooling shroud */}
-        <circle cx="190" cy="35" r="18" strokeDasharray="2,2" />
-        <circle cx="190" cy="35" r="8" fill="#C9A66B" />
-      </g>
-      
-      {/* Unit 3: Cable Management */}
-      <g transform="translate(170, 290)">
-        <rect x="0" y="0" width="260" height="30" rx="2" />
-        {/* Wire paths looping outside the panel */}
-        <path d="M 60 15 C 60 70, 100 70, 100 15" strokeWidth="1.2" opacity="0.7" />
-        <path d="M 80 15 C 80 85, 140 85, 140 15" strokeWidth="1.2" opacity="0.7" />
-        <path d="M 180 15 C 180 90, 230 90, 230 15" strokeWidth="1.2" opacity="0.7" />
-      </g>
-      
-      {/* Unit 4: Control Module */}
-      <g transform="translate(170, 390)">
-        <rect x="0" y="0" width="260" height="70" rx="3" fill="#161616" />
-        {/* VU meter */}
-        <path d="M 30 50 A 25 25 0 0 1 70 50" />
-        <line x1="50" y1="50" x2="35" y2="25" strokeWidth="1.5" />
-        <circle cx="50" cy="50" r="3" fill="#C9A66B" />
-        
-        {/* Slide controllers */}
-        <line x1="110" y1="15" x2="110" y2="55" />
-        <rect x="105" y="25" width="10" height="6" fill="#C9A66B" />
-        
-        <line x1="130" y1="15" x2="130" y2="55" />
-        <rect x="125" y="40" width="10" height="6" fill="#C9A66B" />
+      {/* Ventilation cooling slots */}
+      <line x1="230" y1="210" x2="230" y2="266" strokeWidth="1.2" />
+      <line x1="240" y1="210" x2="240" y2="266" strokeWidth="1.2" />
+      <line x1="250" y1="210" x2="250" y2="266" strokeWidth="1.2" />
+      <line x1="260" y1="210" x2="260" y2="266" strokeWidth="1.2" />
 
-        <line x1="150" y1="15" x2="150" y2="55" />
-        <rect x="145" y="20" width="10" height="6" fill="#C9A66B" />
-        
-        {/* Grid pattern status display */}
-        <rect x="185" y="15" width="55" height="40" strokeWidth="0.6" strokeDasharray="1,1" />
-        <path d="M 185 35 Q 200 15 210 35 T 240 35" strokeWidth="1.2" />
-      </g>
+      {/* Pistol Grip Handle */}
+      <path d="M 210 286 L 235 436 C 235 442, 280 442, 280 436 L 280 286 Z" strokeWidth="1.3" fill="#161616" />
+      {/* Trigger switch */}
+      <path d="M 206 315 Q 186 335 212 355" strokeWidth="1.6" />
+
+      {/* Battery Pack Base */}
+      <rect x="215" y="436" width="80" height="34" rx="6" strokeWidth="1.2" />
+      <line x1="215" y1="446" x2="295" y2="446" />
+
+      {/* Chuck Assembly */}
+      <rect x="360" y="213" width="16" height="50" rx="2" />
+      <rect x="376" y="218" width="34" height="40" rx="3" strokeWidth="1.2" />
+      <line x1="393" y1="218" x2="393" y2="258" />
+
+      {/* Long Drill Bit */}
+      <rect x="410" y="233" width="90" height="10" rx="1.5" strokeWidth="1.2" />
+      {/* Helical flutes on drill bit */}
+      <path d="M 420 233 C 430 243, 435 233, 445 243 C 455 233, 460 243, 470 233 C 480 243, 485 233, 495 243" strokeWidth="1.2" />
+
+      {/* Sparks / Work lines at drill tip */}
+      <line x1="510" y1="238" x2="530" y2="238" strokeWidth="1" />
+      <line x1="506" y1="230" x2="522" y2="214" strokeWidth="1" />
+      <line x1="506" y1="246" x2="522" y2="262" strokeWidth="1" />
     </g>,
   ];
   return (
