@@ -28,6 +28,7 @@ export const SERVICES: ServiceData[] = [
       "Promised timeline handover",
       "In-house specialized execution team",
       "Complete turnkey for Residential & Commercial",
+      "Post-handover warranty & maintenance support",
     ],
     stats: [
       { value: "200+", label: "Interior projects" },
@@ -54,6 +55,7 @@ export const SERVICES: ServiceData[] = [
       "Fast-track timeline delivery",
       "In-house MEP & civil team",
       "Complete turnkey for corporate offices",
+      "Full compliance & regulatory clearances",
     ],
     stats: [
       { value: "150+", label: "Commercial fit-outs" },
@@ -80,6 +82,7 @@ export const SERVICES: ServiceData[] = [
       "Rapid 4-week timeline delivery",
       "In-house dark store execution team",
       "Specialized quick-commerce setups",
+      "Cold chain & temperature control integration",
     ],
     stats: [
       { value: "80+", label: "Dark stores delivered" },
@@ -106,6 +109,7 @@ export const SERVICES: ServiceData[] = [
       "Promised coordinate schedule delivery",
       "In-house licensed engineering team",
       "Complete infrastructure for commercial systems",
+      "Detailed testing & commissioning documentation",
     ],
     stats: [
       { value: "300+", label: "MEP installations" },
@@ -132,6 +136,7 @@ export const SERVICES: ServiceData[] = [
       "Promised surface delivery timelines",
       "In-house factory-trained floor layers",
       "Complete flooring for industrial & luxury spaces",
+      "Substrate moisture testing & preparation warranty",
     ],
     stats: [
       { value: "500k+", label: "Sq ft installed" },
@@ -158,6 +163,7 @@ export const SERVICES: ServiceData[] = [
       "Promised dust-free timeline delivery",
       "In-house professional painters",
       "Complete coatings for walls, wood & steel",
+      "Environment-friendly low-VOC product options",
     ],
     stats: [
       { value: "2M+", label: "Sq ft painted" },
@@ -184,6 +190,7 @@ export const SERVICES: ServiceData[] = [
       "Promised launch timeline delivery",
       "In-house design & fabrication team",
       "Custom signage for retail & corporate spaces",
+      "Integrated wiring & structural mounting safety",
     ],
     stats: [
       { value: "120+", label: "Brand rollouts" },
@@ -210,6 +217,7 @@ export const SERVICES: ServiceData[] = [
       "Guaranteed timeline handover record",
       "In-house multi-disciplinary team",
       "Complete turnkey execution for commercial & retail",
+      "Transparent cost projection & itemized BOQ",
     ],
     stats: [
       { value: "50+", label: "Turnkey projects" },
