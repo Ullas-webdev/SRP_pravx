@@ -41,16 +41,16 @@ export const PROJECTS: ProjectData[] = [
     area: "12,000 sqft",
     timeline: "8 Days / site",
     tech: "Cold Storage MEP · Epoxy Flooring · Signage",
-    detail: "20+ dark stores executed with same-week electrical commissioning.",
+    detail: "15+ rider delivery sheds built across Bengaluru in a span of 10 days.",
     image: "/projects/zepto.png",
     accentColor: "#752BFF",
     challenge: [
       "Operating at the bleeding edge of the 10-minute delivery promise, Zepto's infrastructure requirements are intensely specialized. Their facilities demand extreme electrical loads for extensive cold storage and flawlessly durable flooring to withstand constant heavy cart traffic.",
-      "The timeline mandated was punishing: 4 weeks from bare shell to fully operational facility, repeated across 20+ locations.",
+      "During peak summer in Bengaluru, Zepto was offered to build protective rider sheds across the city within an extremely limited turnaround time to shield their fleet and ensure operations.",
     ],
     srpDifference: [
-      "Our in-house MEP engineering team redesigned the standard load-distribution models to accommodate massive refrigeration arrays without tripping city grids, successfully achieving same-week electrical commissioning.",
-      "Instead of standard commercial flooring, our factory-trained teams poured high-grade industrial epoxy specifically cured for rapid turnaround. Traditional interior designers outsource these technical complexities; at SRP, it's our core in-house capability, guaranteeing Zepto's 4-week launch cadence.",
+      "We supported in building 15+ rider sheds completed in a span of 10 days, focusing on executing 1 to 2 sites per day to keep operations seamless under challenging peak summer conditions.",
+      "Instead of standard commercial flooring, our factory-trained teams poured high-grade industrial epoxy specifically cured for rapid turnaround. Traditional interior designers outsource these technical complexities; at SRP, it's our core in-house capability, guaranteeing Zepto's rapid launch cadence.",
     ],
   },
   {
