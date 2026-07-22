@@ -22,7 +22,7 @@ export const PROJECTS: ProjectData[] = [
     timeline: "8 Days / site",
     tech: "Complete Electrical / Partition work / Fabrication work",
     detail: "25+ stores delivered across South India.",
-    image: "/projects/blinkit.png",
+    image: "/projects/blinkit.jpg",
     accentColor: "#F8CA15",
     challenge: [
       "Quick-commerce relies purely on speed—not just in delivery, but in expansion. Blinkit required a network of 25+ dark stores across highly congested metro areas.",
@@ -61,7 +61,7 @@ export const PROJECTS: ProjectData[] = [
     timeline: "8 Days / site",
     tech: "Retail Fixtures · Sourcing · Maintenance",
     detail: "Complete interior fit-out, site maintenance, and commercial asset sourcing.",
-    image: "/projects/tata1mg.png",
+    image: "/projects/tata1mg.jpg",
     accentColor: "#FF5E4D",
     challenge: [
       "Tata 1mg required a multi-faceted retail partner capable of executing high-finish pharmacy interiors while managing the ongoing repair and maintenance of their existing operational facilities.",
@@ -80,7 +80,7 @@ export const PROJECTS: ProjectData[] = [
     timeline: "8 Days / site",
     tech: "Acoustics · Pavement Civil Works · MEP",
     detail: "Academic campus interior fit-out and external pavement civil works at Electronic City.",
-    image: "/projects/weschool.png",
+    image: "/projects/weschool.jpg",
     accentColor: "#003B5C",
     challenge: [
       "WeSchool required a comprehensive institutional transformation of their Electronic City campus, demanding high-durability internal learning spaces coupled with external campus civil works.",
@@ -99,7 +99,7 @@ export const PROJECTS: ProjectData[] = [
     timeline: "8 Days / site",
     tech: "Bespoke Joinery · Stone Flooring · MEP",
     detail: "A private residence finished to a fully bespoke luxury standard.",
-    image: "/projects/gwalia.png",
+    image: "/projects/gwalia.jpg",
     accentColor: "#C9A66B",
     challenge: [
       "Luxury residential projects require an obsessive level of detail that commercial spaces rarely demand. The Gwalia residence, spanning 6,800 sqft, called for fully bespoke finishes, complex smart-home MEP integrations, and flawless execution of rare natural stone.",
