@@ -18,10 +18,10 @@ export const PROJECTS: ProjectData[] = [
     slug: "blinkit",
     client: "Blinkit",
     type: "Dark Store Network",
-    area: "18,500 sqft",
-    timeline: "6 weeks / site",
-    tech: "MEP · Flooring · Racking · Branding",
-    detail: "25+ stores delivered across metros on a repeatable rollout template.",
+    area: "1 Lakh plus sqft",
+    timeline: "8 Days / site",
+    tech: "Complete Electrical / Partition work / Fabrication work",
+    detail: "25+ stores delivered across South India.",
     image: "/projects/blinkit.png",
     accentColor: "#F8CA15",
     challenge: [
@@ -30,7 +30,8 @@ export const PROJECTS: ProjectData[] = [
     ],
     srpDifference: [
       "While a typical contractor struggles to coordinate multiple agencies across cities, SRP utilized our Turnkey Delivery model to handle MEP, specialized heavy-load flooring, racking systems, and exterior branding under one unified contract.",
-      "By eliminating the 'subcontractor gap'—the notorious delay when plumbers wait for electricians—we compressed a standard 12-week commercial build cycle down to just 6 weeks per site, enabling Blinkit to capture market share months ahead of schedule.",
+      "By eliminating the 'subcontractor gap'—the notorious delay when trades wait for each other—we compressed the commercial build cycle down to just 8 days per site, enabling Blinkit to capture market share and go live ahead of schedule.",
+      "Our technicians are multi-skilled in both electrical and fabrication work, ensuring a rapid turnaround time on site with zero inter-trade dependencies.",
     ],
   },
   {

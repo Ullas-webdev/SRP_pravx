@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import type { ProjectData } from "@/lib/projects-data";
+import AreaTicker from "@/components/ui/AreaTicker";
 
 interface Props {
   project: ProjectData;
@@ -85,7 +86,9 @@ export default function ProjectHero({ project }: Props) {
         >
           <div>
             <p className="eyebrow text-pearl/40 mb-2">Area</p>
-            <p className="font-display text-xl md:text-2xl text-pearl">{project.area}</p>
+            <p className="font-display text-xl md:text-2xl text-pearl">
+              <AreaTicker area={project.area} />
+            </p>
           </div>
           <div>
             <p className="eyebrow text-pearl/40 mb-2">Timeline</p>

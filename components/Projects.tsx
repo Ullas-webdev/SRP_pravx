@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS } from "@/lib/projects-data";
+import AreaTicker from "@/components/ui/AreaTicker";
 
 export default function Projects() {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -91,7 +92,9 @@ export default function Projects() {
             <div className="grid grid-cols-2 gap-y-3 text-sm border-t border-line pt-5">
               <div>
                 <p className="eyebrow text-pearl/35 mb-1">Area</p>
-                <p className="text-pearl/80">{p.area}</p>
+                <p className="text-pearl/80">
+                  <AreaTicker area={p.area} />
+                </p>
               </div>
               <div>
                 <p className="eyebrow text-pearl/35 mb-1">Timeline</p>
