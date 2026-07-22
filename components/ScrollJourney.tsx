@@ -33,30 +33,72 @@ const STAGES = [
 
 function renderGeometry(stageIndex: number) {
   switch (stageIndex) {
-    case 0: // Site Visit
+    case 0: // Site Visit (Measuring Tape Schematic)
       return (
         <g stroke="#C9A66B" strokeWidth="0.8" fill="none">
-          {/* Compass / radar outer dial */}
-          <circle cx="300" cy="300" r="180" strokeDasharray="4,4" opacity="0.4" />
-          <circle cx="300" cy="300" r="100" opacity="0.6" />
-          {/* Vertical and horizontal axis */}
-          <line x1="120" y1="300" x2="480" y2="300" opacity="0.3" />
-          <line x1="300" y1="120" x2="300" y2="480" opacity="0.3" />
-          {/* Radial mapping lines */}
-          <line x1="172" y1="172" x2="428" y2="428" strokeDasharray="3,3" opacity="0.25" />
-          <line x1="428" y1="172" x2="172" y2="428" strokeDasharray="3,3" opacity="0.25" />
-          {/* Measuring point markers */}
-          <polygon points="300,115 305,120 300,125 295,120" fill="#C9A66B" />
-          <polygon points="300,475 305,480 300,485 295,480" fill="#C9A66B" />
-          <polygon points="115,300 120,305 125,300 120,295" fill="#C9A66B" />
-          <polygon points="475,300 480,305 485,300 480,295" fill="#C9A66B" />
-          {/* Target scanning circles in center */}
-          <circle cx="300" cy="300" r="24" strokeWidth="1" />
-          <circle cx="300" cy="300" r="6" fill="#C9A66B" />
-          {/* Laser distance measuring box silhouette */}
-          <rect x="250" y="220" width="100" height="50" strokeWidth="1.2" />
-          <line x1="250" y1="245" x2="350" y2="245" strokeDasharray="2,2" />
-          <text x="300" y="210" fill="#C9A66B" fontSize="10" textAnchor="middle" style={{ fontFamily: 'monospace', letterSpacing: '2px' }}>LASER RANGE FINDER</text>
+          {/* Subtle horizontal grid guide */}
+          <line x1="120" y1="308" x2="480" y2="308" strokeDasharray="5,5" opacity="0.2" />
+          
+          {/* Casing of the tape measure */}
+          <rect x="180" y="240" width="100" height="96" rx="16" strokeWidth="1.2" />
+          {/* Inner circle detailing */}
+          <circle cx="230" cy="288" r="28" strokeDasharray="2,2" opacity="0.4" />
+          <circle cx="230" cy="288" r="8" opacity="0.6" />
+          {/* Lock Button */}
+          <rect x="222" y="226" width="16" height="14" rx="2" />
+          <line x1="230" y1="226" x2="230" y2="240" />
+          {/* Belt Clip */}
+          <path d="M 215 270 L 235 270 L 235 306 L 215 296" opacity="0.6" />
+          {/* Tape Exit Mouth */}
+          <rect x="270" y="295" width="10" height="26" />
+          {/* Strap loop */}
+          <path d="M 180 310 C 150 310, 140 270, 180 255" strokeDasharray="3,3" opacity="0.35" />
+
+          {/* Extended Tape Blade */}
+          <line x1="280" y1="300" x2="450" y2="300" strokeWidth="1.4" />
+          <line x1="280" y1="316" x2="450" y2="316" strokeWidth="1.4" />
+          
+          {/* Hook at the end */}
+          <path d="M 450 295 L 456 295 L 456 321 L 450 321 Z" fill="#C9A66B" />
+          <circle cx="445" cy="308" r="1.5" fill="#C9A66B" />
+
+          {/* Measurement Ticks */}
+          {Array.from({ length: 19 }).map((_, idx) => {
+            const x = 282 + idx * 9;
+            const isMajor = idx % 5 === 0;
+            return (
+              <line
+                key={`top-${idx}`}
+                x1={x}
+                y1="300"
+                x2={x}
+                y2={isMajor ? "308" : "304"}
+                stroke="#C9A66B"
+                strokeWidth="0.8"
+              />
+            );
+          })}
+          {Array.from({ length: 19 }).map((_, idx) => {
+            const x = 282 + idx * 9;
+            const isMajor = idx % 5 === 0;
+            return (
+              <line
+                key={`bot-${idx}`}
+                x1={x}
+                y1="316"
+                x2={x}
+                y2={isMajor ? "308" : "312"}
+                stroke="#C9A66B"
+                strokeWidth="0.8"
+              />
+            );
+          })}
+
+          {/* Numbers */}
+          <text x="282" y="313" fill="#C9A66B" fontSize="6.5" textAnchor="middle" style={{ fontFamily: 'monospace', stroke: 'none' }}>10</text>
+          <text x="327" y="313" fill="#C9A66B" fontSize="6.5" textAnchor="middle" style={{ fontFamily: 'monospace', stroke: 'none' }}>20</text>
+          <text x="372" y="313" fill="#C9A66B" fontSize="6.5" textAnchor="middle" style={{ fontFamily: 'monospace', stroke: 'none' }}>30</text>
+          <text x="417" y="313" fill="#C9A66B" fontSize="6.5" textAnchor="middle" style={{ fontFamily: 'monospace', stroke: 'none' }}>40</text>
         </g>
       );
     case 1: // Blueprint
