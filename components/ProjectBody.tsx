@@ -143,7 +143,7 @@ export default function ProjectBody({ project }: Props) {
               ].map((src, i) => (
                 <div 
                   key={i} 
-                  className="relative shrink-0 w-[300px] md:w-[420px] aspect-[4/3] rounded-xl overflow-hidden border border-line"
+                  className="relative shrink-0 w-[260px] md:w-[420px] aspect-[3/4] md:aspect-[3/2] rounded-xl overflow-hidden border border-line"
                 >
                   <Image
                     src={src}
