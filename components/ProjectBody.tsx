@@ -149,9 +149,9 @@ export default function ProjectBody({ project }: Props) {
                     src={src}
                     alt={`${project.client} site photo`}
                     fill
+                    quality={100}
                     className="object-cover hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 300px, 420px"
-                    unoptimized
                   />
                 </div>
               ))}

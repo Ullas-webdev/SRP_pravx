@@ -70,14 +70,14 @@ export default function FeaturedGallery() {
                 Image scaled to 1.05 initially to automatically crop out 
                 any thin baked-in white borders around the image edge.
               */}
-              <Image
-                src={img.src}
-                alt={img.label}
-                fill
-                className="object-cover scale-[1.05] group-hover:scale-[1.10] transition-transform duration-700 ease-out"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                unoptimized
-              />
+                <Image
+                  src={img.src}
+                  alt={img.label}
+                  fill
+                  quality={100}
+                  className="object-cover scale-[1.05] group-hover:scale-[1.10] transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
             </motion.div>
           ))}
         </div>
