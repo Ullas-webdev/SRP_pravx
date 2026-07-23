@@ -6,37 +6,37 @@ import { motion } from "framer-motion";
 const featuredImages = [
   { 
     src: "/featured/feat1.jpg", 
-    span: "md:col-span-2 md:row-span-2", 
+    span: "aspect-square md:aspect-auto md:col-span-2 md:row-span-2", 
     label: "Bespoke Modern Kitchen" 
   },
   { 
     src: "/featured/feat2.jpg", 
-    span: "md:col-span-1 md:row-span-1", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
     label: "Luxury Residential Lounge" 
   },
   { 
     src: "/featured/feat6.jpg", 
-    span: "md:col-span-1 md:row-span-2", 
+    span: "aspect-[3/4] md:aspect-auto md:col-span-1 md:row-span-2", 
     label: "Glass Partitioned Office" 
   },
   { 
     src: "/featured/feat3.jpg", 
-    span: "md:col-span-1 md:row-span-1", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
     label: "Commercial Retail Front" 
   },
   { 
     src: "/featured/feat7.jpg", 
-    span: "md:col-span-2 md:row-span-1", 
+    span: "aspect-video md:aspect-auto md:col-span-2 md:row-span-1", 
     label: "Premium Dining Area" 
   },
   { 
     src: "/featured/feat4.jpg", 
-    span: "md:col-span-1 md:row-span-1", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
     label: "Aesthetic Café Interior" 
   },
   { 
     src: "/featured/feat5.jpg", 
-    span: "md:col-span-1 md:row-span-1", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
     label: "Open-Plan Corporate Workspace" 
   },
 ];
@@ -56,7 +56,7 @@ export default function FeaturedGallery() {
         </div>
 
         {/* Minimalist Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[250px] md:auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-4 md:auto-rows-[300px]">
           {featuredImages.map((img, i) => (
             <motion.div
               key={i}
