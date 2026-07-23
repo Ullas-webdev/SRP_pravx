@@ -5,39 +5,39 @@ import { motion } from "framer-motion";
 
 const featuredImages = [
   { 
-    src: "/featured/batch2_2.jpg", 
+    src: "/featured/feat1.jpg", 
     span: "md:col-span-2 md:row-span-2", 
-    label: "Bespoke Corporate Boardroom" 
+    label: "Bespoke Modern Kitchen" 
   },
   { 
-    src: "/featured/batch1_1.jpg", 
+    src: "/featured/feat2.jpg", 
     span: "md:col-span-1 md:row-span-1", 
-    label: "Premium Executive Suite" 
-  },
-  { 
-    src: "/featured/batch1_4.jpg", 
-    span: "md:col-span-1 md:row-span-2", 
-    label: "Modern Collaboration Zone" 
-  },
-  { 
-    src: "/featured/batch1_2.jpg", 
-    span: "md:col-span-1 md:row-span-1", 
-    label: "Aesthetic Café Fit-out" 
-  },
-  { 
-    src: "/featured/batch2_1.jpg", 
-    span: "md:col-span-2 md:row-span-1", 
     label: "Luxury Residential Lounge" 
   },
   { 
-    src: "/featured/batch1_5.jpg", 
-    span: "md:col-span-1 md:row-span-1", 
-    label: "Acoustic Lecture Hall" 
+    src: "/featured/feat6.jpg", 
+    span: "md:col-span-1 md:row-span-2", 
+    label: "Glass Partitioned Office" 
   },
   { 
-    src: "/featured/batch1_3.jpg", 
+    src: "/featured/feat3.jpg", 
     span: "md:col-span-1 md:row-span-1", 
-    label: "Precision MEP Infrastructure" 
+    label: "Commercial Retail Front" 
+  },
+  { 
+    src: "/featured/feat7.jpg", 
+    span: "md:col-span-2 md:row-span-1", 
+    label: "Premium Dining Area" 
+  },
+  { 
+    src: "/featured/feat4.jpg", 
+    span: "md:col-span-1 md:row-span-1", 
+    label: "Aesthetic Café Interior" 
+  },
+  { 
+    src: "/featured/feat5.jpg", 
+    span: "md:col-span-1 md:row-span-1", 
+    label: "Open-Plan Corporate Workspace" 
   },
 ];
 
