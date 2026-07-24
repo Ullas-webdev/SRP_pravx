@@ -41,12 +41,12 @@ export default function Services() {
                 href={`/services/${s.slug}`}
                 className="card-glass group relative p-8 min-h-[240px] flex flex-col justify-between bg-matte hover:bg-charcoal transition-colors duration-500 block"
               >
-                {/* Hover background image preview */}
+                {/* Background image permanently visible */}
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 bg-cover bg-center"
+                  className="absolute inset-0 opacity-20 bg-cover bg-center transition-opacity duration-500 group-hover:opacity-40"
                   style={{ backgroundImage: `url(${s.bgImage})` }}
                 />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-t from-charcoal to-transparent" />
+                <div className="absolute inset-0 opacity-100 bg-gradient-to-t from-charcoal/90 to-charcoal/10" />
 
                 <div className="relative flex items-start justify-between">
                   <span className="eyebrow text-gold">{s.n}</span>
