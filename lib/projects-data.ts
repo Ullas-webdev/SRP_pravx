@@ -40,7 +40,7 @@ export const PROJECTS: ProjectData[] = [
     type: "Quick-Commerce Fit-out",
     area: "12,000 sqft",
     timeline: "8 Days / site",
-    tech: "Cold Storage MEP · Epoxy Flooring · Signage",
+    tech: "Riders Shed",
     detail: "15+ rider delivery sheds built across Bengaluru in a span of 10 days.",
     image: "/projects/zepto.jpg",
     accentColor: "#752BFF",
