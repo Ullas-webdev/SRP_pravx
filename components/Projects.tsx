@@ -49,7 +49,7 @@ export default function Projects() {
 
       <div
         ref={scrollerRef}
-        className="flex gap-6 overflow-x-auto pb-6 pl-[clamp(1.5rem,5vw,6rem)] pr-[clamp(1.5rem,5vw,6rem)] snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden relative"
+        className="flex gap-6 overflow-x-auto pb-6 px-[clamp(1.5rem,5vw,6rem)] scroll-px-[clamp(1.5rem,5vw,6rem)] snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden relative"
       >
         {PROJECTS.map((p, i) => (
           <motion.div
