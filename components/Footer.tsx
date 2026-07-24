@@ -87,10 +87,10 @@ export default function Footer() {
         <div className="hairline" />
 
         <div className="py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-pearl/35 text-xs">
+          <p className="text-pearl/35 text-sm">
             © {new Date().getFullYear()} Space Right Projects. All rights reserved.
           </p>
-          <p className="eyebrow text-pearl/30">Building Spaces That Perform</p>
+          <p className="eyebrow text-pearl/30 !text-xs md:!text-sm">Building Spaces That Perform</p>
         </div>
       </div>
     </footer>
