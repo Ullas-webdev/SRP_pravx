@@ -79,41 +79,41 @@ function ArchLines({ index }: { index: number }) {
       <circle cx="490" cy="125" r="10" opacity="0.3" />
     </g>,
 
-    // Variant 2: Copper Wire Roll (representing Electrical and MEP)
+    // Variant 2: Simple Building Geometry (representing straightforward structural scale)
     <g key="2" stroke="#C9A66B" strokeWidth="0.8" fill="none" opacity="0.65">
-      {/* Outer aura lines / sparkles to maintain consistency */}
-      <line x1="300" y1="90" x2="300" y2="50" strokeWidth="1.2" />
-      <line x1="420" y1="130" x2="450" y2="100" strokeWidth="1.2" />
-      <line x1="180" y1="130" x2="150" y2="100" strokeWidth="1.2" />
-      
-      <path d="M 450 160 L 453 165 L 458 166 L 453 167 L 450 172 L 447 167 L 442 166 L 447 165 Z" fill="#C9A66B" />
-      <path d="M 150 160 L 153 165 L 158 166 L 153 167 L 150 172 L 147 167 L 142 166 L 147 165 Z" fill="#C9A66B" />
+      {/* Subtle alignment grids */}
+      <line x1="180" y1="310" x2="420" y2="310" strokeDasharray="3 3" opacity="0.2" />
+      <line x1="300" y1="160" x2="300" y2="360" strokeDasharray="3 3" opacity="0.2" />
 
-      {/* Wire Spool Body */}
-      {/* Top flange inner/outer */}
-      <ellipse cx="300" cy="180" rx="90" ry="25" strokeWidth="1.2" />
-      <ellipse cx="300" cy="180" rx="30" ry="8" opacity="0.4" />
+      {/* Main Building Base (Left Wall) */}
+      <path d="M 300 340 L 190 280 L 190 200 L 300 260 Z" strokeWidth="1.4" fill="#111111" />
       
-      {/* Main core wrap (wound wire) */}
-      <rect x="230" y="180" width="140" height="180" fill="none" strokeWidth="1.2" />
+      {/* Main Building Base (Right Wall) */}
+      <path d="M 300 340 L 410 280 L 410 200 L 300 260 Z" strokeWidth="1.4" />
       
-      {/* Render 12 horizontal lines for the wire wraps */}
-      {[...Array(12)].map((_, i) => (
-        <line key={i} x1="230" y1={195 + i * 14} x2="370" y2={195 + i * 14} strokeWidth="1.2" opacity="0.8" />
-      ))}
+      {/* Flat Roof */}
+      <path d="M 190 200 L 300 140 L 410 200 L 300 260 Z" strokeWidth="1.6" fill="#1a1a1a" />
+      
+      {/* Roof Parapet / Detailing */}
+      <path d="M 210 205 L 300 155 L 390 205 L 300 250 Z" strokeWidth="1.2" opacity="0.6" />
 
-      {/* Bottom flange */}
-      <path d="M 210 360 C 210 395, 390 395, 390 360" strokeWidth="1.2" />
-      
-      {/* Vertical bounds of flanges */}
-      <line x1="210" y1="180" x2="210" y2="360" strokeWidth="1.2" />
-      <line x1="390" y1="180" x2="390" y2="360" strokeWidth="1.2" />
+      {/* Minimalist windows / columns on Left Wall */}
+      <line x1="220" y1="210" x2="220" y2="290" opacity="0.5" />
+      <line x1="250" y1="225" x2="250" y2="305" opacity="0.5" />
+      <line x1="280" y1="242" x2="280" y2="322" opacity="0.5" />
 
-      {/* Loose unspooled wire coming off the roll */}
-      <path d="M 230 320 C 130 310, 160 450, 260 420 S 420 380, 480 460" strokeWidth="1.4" />
-      
-      {/* Another broken/stray wire in background */}
-      <path d="M 370 240 C 460 250, 430 150, 520 160" strokeWidth="1" opacity="0.5" strokeDasharray="4 2" />
+      {/* Minimalist windows / columns on Right Wall */}
+      <line x1="320" y1="242" x2="320" y2="322" opacity="0.5" />
+      <line x1="350" y1="225" x2="350" y2="305" opacity="0.5" />
+      <line x1="380" y1="210" x2="380" y2="290" opacity="0.5" />
+
+      {/* Large Entrance Bay on the right wall */}
+      <path d="M 340 310 L 370 294 L 370 260 L 340 276 Z" strokeWidth="1.2" opacity="0.8" />
+
+      {/* Floating Sparkles / Blueprint nodes */}
+      <circle cx="210" cy="150" r="2.5" fill="#C9A66B" />
+      <circle cx="390" cy="330" r="2.5" fill="#C9A66B" />
+      <path d="M 390 140 L 393 145 L 398 146 L 393 147 L 390 152 L 387 147 L 382 146 L 387 145 Z" fill="#C9A66B" />
     </g>,
 
     // Variant 3: Power Drill Machine Geometry (representing Fabrication and Construction)
