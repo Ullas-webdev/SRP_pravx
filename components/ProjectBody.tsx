@@ -138,8 +138,8 @@ export default function ProjectBody({ project }: Props) {
             <div className="flex gap-6 marquee-track w-max">
               {/* Double the list to ensure seamless looping */}
               {[
-                ...Array.from({ length: 5 }, (_, idx) => `/projects/gallery/${project.slug}/${idx + 1}.jpg`),
-                ...Array.from({ length: 5 }, (_, idx) => `/projects/gallery/${project.slug}/${idx + 1}.jpg`)
+                ...Array.from({ length: 5 }, (_, idx) => `/projects/gallery/${project.slug}/${project.slug === 'tata-1mg' ? 'mix-' : ''}${idx + 1}.jpg`),
+                ...Array.from({ length: 5 }, (_, idx) => `/projects/gallery/${project.slug}/${project.slug === 'tata-1mg' ? 'mix-' : ''}${idx + 1}.jpg`)
               ].map((src, i) => (
                 <div 
                   key={i} 
