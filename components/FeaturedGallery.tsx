@@ -45,6 +45,26 @@ const featuredImages = [
     span: "aspect-video md:aspect-auto md:col-span-2 md:row-span-1", 
     label: "Food & Beverage Counter" 
   },
+  { 
+    src: "/featured/feat9.jpg", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    label: "Industrial Yellow Racking" 
+  },
+  { 
+    src: "/featured/feat10.jpg", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    label: "Large Warehouse Facility" 
+  },
+  { 
+    src: "/featured/feat11.jpg", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    label: "Cantilever Storage System" 
+  },
+  { 
+    src: "/featured/feat12.jpg", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    label: "Heavy-Duty Metal Shelving" 
+  },
 ];
 
 export default function FeaturedGallery() {
