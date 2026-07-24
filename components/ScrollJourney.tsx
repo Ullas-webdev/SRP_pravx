@@ -218,14 +218,6 @@ function renderGeometry(stageIndex: number) {
 export default function ScrollJourney() {
   const [stage, setStage] = useState(0);
 
-  // Auto-play cycling effect: advances stage every 1.5 seconds.
-  // Re-creates the timer whenever stage changes, ensuring interaction reset.
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setStage((prev) => (prev + 1) % STAGES.length);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, [stage]);
 
   return (
     <section className="relative bg-charcoal py-24 overflow-hidden" id="journey">
