@@ -88,7 +88,7 @@ export default function Projects() {
         ))}
       </div>
 
-      <div className="container-x mt-10 flex items-center justify-end gap-4">
+      <div className="container-x mt-10 flex items-center justify-center gap-4">
         <span className="eyebrow text-gold/60 animate-pulse text-[0.68rem] tracking-[0.2em] hidden sm:inline-block">
           Swipe / Scroll
         </span>
