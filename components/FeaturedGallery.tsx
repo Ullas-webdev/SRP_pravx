@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -99,11 +99,42 @@ const featuredImages = [
 
 export default function FeaturedGallery() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [scale, setScale] = useState(1);
+
+  // Keyboard navigation & body scroll lock
+  useEffect(() => {
+    if (selectedIndex === null) {
+      document.body.style.overflow = "";
+      return;
+    }
+    
+    document.body.style.overflow = "hidden";
+    
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        setSelectedIndex((prev) => prev !== null ? (prev + 1) % featuredImages.length : null);
+        setScale(1);
+      } else if (e.key === "ArrowLeft") {
+        setSelectedIndex((prev) => prev !== null ? (prev - 1 + featuredImages.length) % featuredImages.length : null);
+        setScale(1);
+      } else if (e.key === "Escape") {
+        setSelectedIndex(null);
+        setScale(1);
+      }
+    };
+    
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [selectedIndex]);
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex + 1) % featuredImages.length);
+      setScale(1);
     }
   };
 
@@ -111,6 +142,7 @@ export default function FeaturedGallery() {
     e.stopPropagation();
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex - 1 + featuredImages.length) % featuredImages.length);
+      setScale(1);
     }
   };
 
@@ -175,11 +207,20 @@ export default function FeaturedGallery() {
               className="relative w-full max-w-6xl max-h-full flex items-center justify-center cursor-default"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={featuredImages[selectedIndex].src}
-                alt="Expanded view"
-                className="max-w-full max-h-[90vh] object-contain rounded-md"
-              />
+              <div 
+                className="overflow-hidden flex items-center justify-center rounded-md"
+                onWheel={(e) => {
+                  e.stopPropagation();
+                  setScale(s => Math.min(Math.max(1, s - e.deltaY * 0.005), 5));
+                }}
+              >
+                <img
+                  src={featuredImages[selectedIndex].src}
+                  alt="Expanded view"
+                  className="max-w-full max-h-[90vh] object-contain transition-transform duration-100 ease-out"
+                  style={{ transform: `scale(${scale})` }}
+                />
+              </div>
               
               {/* Previous Button */}
               <button
