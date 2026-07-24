@@ -24,27 +24,6 @@ export default function Projects() {
             <span className="italic gold-gradient-text"> real weight.</span>
           </h2>
         </div>
-        <div className="flex items-center gap-4">
-          <span className="eyebrow text-gold/60 animate-pulse text-[0.68rem] tracking-[0.2em] hidden sm:inline-block">
-            Swipe / Scroll
-          </span>
-          <div className="flex gap-2.5">
-            <button
-              aria-label="Scroll left"
-              onClick={() => scrollBy(-1)}
-              className="w-10 h-10 md:w-12 md:h-12 border border-pearl/25 rounded-full flex items-center justify-center hover:border-gold hover:text-gold transition-colors duration-300 z-10 relative text-sm md:text-base bg-matte/40 backdrop-blur-sm"
-            >
-              ←
-            </button>
-            <button
-              aria-label="Scroll right"
-              onClick={() => scrollBy(1)}
-              className="w-10 h-10 md:w-12 md:h-12 border border-pearl/25 rounded-full flex items-center justify-center hover:border-gold hover:text-gold transition-colors duration-300 z-10 relative text-sm md:text-base bg-matte/40 backdrop-blur-sm"
-            >
-              →
-            </button>
-          </div>
-        </div>
       </div>
 
       <div
@@ -107,6 +86,28 @@ export default function Projects() {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      <div className="container-x mt-10 flex items-center justify-end gap-4">
+        <span className="eyebrow text-gold/60 animate-pulse text-[0.68rem] tracking-[0.2em] hidden sm:inline-block">
+          Swipe / Scroll
+        </span>
+        <div className="flex gap-2.5">
+          <button
+            aria-label="Scroll left"
+            onClick={() => scrollBy(-1)}
+            className="w-10 h-10 md:w-12 md:h-12 border border-pearl/25 rounded-full flex items-center justify-center hover:border-gold hover:text-gold transition-colors duration-300 z-10 relative text-sm md:text-base bg-matte/40 backdrop-blur-sm"
+          >
+            ←
+          </button>
+          <button
+            aria-label="Scroll right"
+            onClick={() => scrollBy(1)}
+            className="w-10 h-10 md:w-12 md:h-12 border border-pearl/25 rounded-full flex items-center justify-center hover:border-gold hover:text-gold transition-colors duration-300 z-10 relative text-sm md:text-base bg-matte/40 backdrop-blur-sm"
+          >
+            →
+          </button>
+        </div>
       </div>
     </section>
   );
