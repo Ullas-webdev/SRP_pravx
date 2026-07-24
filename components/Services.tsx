@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef } from "react";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { SERVICES } from "@/lib/services-data";
@@ -14,6 +16,18 @@ const item = {
 };
 
 export default function Services() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = window.innerWidth < 768 ? window.innerWidth * 0.85 : 424; // 400px width + 24px gap
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="services" className="relative py-16 md:py-24 bg-matte">
       <div className="container-x">
@@ -75,9 +89,38 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="mt-12"
+          className="mt-16 md:mt-24"
         >
-          <div className="flex overflow-x-auto gap-6 snap-x snap-mandatory pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="font-display text-2xl md:text-3xl text-white">
+              Specialized <span className="italic gold-gradient-text">Divisions</span>
+            </h3>
+            <div className="flex gap-3">
+              <button 
+                onClick={() => scroll('left')} 
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-line flex items-center justify-center text-pearl hover:text-gold hover:border-gold transition-colors"
+                aria-label="Scroll left"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <button 
+                onClick={() => scroll('right')} 
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-line flex items-center justify-center text-pearl hover:text-gold hover:border-gold transition-colors"
+                aria-label="Scroll right"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <div 
+            ref={scrollRef}
+            className="flex overflow-x-auto gap-6 snap-x snap-mandatory pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+          >
             {[
               {
                 title: "Commercial Kitchen & Restaurant Setup",
