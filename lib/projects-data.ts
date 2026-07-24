@@ -110,6 +110,23 @@ export const PROJECTS: ProjectData[] = [
       "Our ability to overlap MEP installation with bespoke joinery and flooring allowed us to successfully deliver the 3,000 sqft space on time without compromising on the premium finish.",
     ],
   },
+  {
+    slug: "radhakrishna",
+    client: "The House of RadhaKrishna",
+    type: "Kitchen",
+    area: "300 sqft",
+    timeline: "15 Days / site",
+    tech: "Fully Furnished Kitchen",
+    detail: "Custom built commercial kitchen counter and service area.",
+    image: "/projects/radhakrishna.jpg",
+    accentColor: "#DF2027",
+    challenge: [
+      "Creating a fully functional commercial kitchen and service counter within a highly constrained 300 sqft footprint.",
+    ],
+    srpDifference: [
+      "SRP used space-optimizing layout strategies and rapid-deployment materials to deliver a fully furnished, operational kitchen in just 15 days.",
+    ],
+  },
 ];
 
 export function getProjectBySlug(slug: string): ProjectData | undefined {
