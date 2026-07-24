@@ -61,7 +61,7 @@ export const PROJECTS: ProjectData[] = [
     timeline: "8 Days / site",
     tech: "Retail Fixtures · Sourcing · Maintenance",
     detail: "Complete interior fit-out, site maintenance, and commercial asset sourcing.",
-    image: "/projects/tata1mg.jpg",
+    image: "/projects/tata1mg-v2.jpg",
     accentColor: "#FF5E4D",
     challenge: [
       "Tata 1mg required a multi-faceted retail partner capable of executing high-finish pharmacy interiors while managing the ongoing repair and maintenance of their existing operational facilities.",
@@ -99,7 +99,7 @@ export const PROJECTS: ProjectData[] = [
     timeline: "45 Days",
     tech: "Complete Turnkey Project",
     detail: "Complete interior fit-out for a premium sweets and restaurant shop.",
-    image: "/projects/gwalia.jpg",
+    image: "/projects/gwalia-v2.jpg",
     accentColor: "#C9A66B",
     challenge: [
       "A commercial restaurant and sweet shop requires highly specialized MEP for commercial kitchens, display refrigeration, and high-traffic dining areas.",
