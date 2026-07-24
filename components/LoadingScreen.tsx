@@ -270,7 +270,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   useEffect(() => {
     let raf: number;
     let start: number | null = null;
-    const TOTAL_MS = 2800; // full 0→100 duration
+    const TOTAL_MS = 6000; // full 0→100 duration
 
     const ease = (t: number) =>
       t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
@@ -297,9 +297,9 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     return () => cancelAnimationFrame(raf);
   }, [onComplete]);
 
-  // Message rotator every 900ms
+  // Message rotator every 1500ms
   useEffect(() => {
-    const id = setInterval(() => setMsgIndex((i) => i + 1), 900);
+    const id = setInterval(() => setMsgIndex((i) => i + 1), 1500);
     return () => clearInterval(id);
   }, []);
 
