@@ -90,6 +90,11 @@ const featuredImages = [
     span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
     label: "Commercial Exterior Shutter" 
   },
+  { 
+    src: "/featured/feat18.jpg", 
+    span: "aspect-video md:aspect-[21/9] md:col-span-4 md:row-span-1", 
+    label: "Industrial Metal Racking Setup" 
+  },
 ];
 
 export default function FeaturedGallery() {
