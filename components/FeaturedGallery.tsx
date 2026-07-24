@@ -32,13 +32,18 @@ const featuredImages = [
   },
   { 
     src: "/featured/feat4.jpg", 
-    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    span: "aspect-video md:aspect-auto md:col-span-2 md:row-span-1", 
     label: "Aesthetic Café Interior" 
   },
   { 
     src: "/featured/feat5.jpg", 
-    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    span: "aspect-video md:aspect-auto md:col-span-2 md:row-span-1", 
     label: "Open-Plan Corporate Workspace" 
+  },
+  { 
+    src: "/featured/feat8.jpg", 
+    span: "aspect-video md:aspect-auto md:col-span-2 md:row-span-1", 
+    label: "Food & Beverage Counter" 
   },
 ];
 
