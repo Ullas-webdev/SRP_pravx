@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const featuredImages = [
   { 
@@ -42,6 +43,8 @@ const featuredImages = [
 ];
 
 export default function FeaturedGallery() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <section className="py-16 md:py-24 bg-matte relative border-t border-line/40">
       <div className="container-x">
@@ -64,7 +67,8 @@ export default function FeaturedGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className={`relative rounded-xl overflow-hidden group ${img.span}`}
+              className={`relative rounded-xl overflow-hidden group cursor-pointer ${img.span}`}
+              onClick={() => setSelectedImage(img.src)}
             >
               {/* 
                 Image scaled to 1.05 initially to automatically crop out 
@@ -82,6 +86,43 @@ export default function FeaturedGallery() {
           ))}
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-8 cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-6xl max-h-full flex items-center justify-center cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage}
+                alt="Expanded view"
+                className="max-w-full max-h-[90vh] object-contain rounded-md"
+              />
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-0 right-0 md:-top-4 md:-right-4 w-10 h-10 bg-matte text-white border border-line rounded-full flex items-center justify-center hover:text-gold hover:border-gold transition-colors z-10 translate-x-1/4 -translate-y-1/4 md:translate-x-1/2 md:-translate-y-1/2"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
