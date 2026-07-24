@@ -98,7 +98,21 @@ const featuredImages = [
 ];
 
 export default function FeaturedGallery() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex + 1) % featuredImages.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((selectedIndex - 1 + featuredImages.length) % featuredImages.length);
+    }
+  };
 
   return (
     <section className="py-16 md:py-24 bg-matte relative border-t border-line/40">
@@ -123,7 +137,7 @@ export default function FeaturedGallery() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className={`relative rounded-xl overflow-hidden group cursor-pointer ${img.span}`}
-              onClick={() => setSelectedImage(img.src)}
+              onClick={() => setSelectedIndex(i)}
             >
               {/* 
                 Image scaled to 1.05 initially to automatically crop out 
@@ -144,15 +158,16 @@ export default function FeaturedGallery() {
 
       {/* Lightbox Modal */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedIndex(null)}
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-8 cursor-zoom-out"
           >
             <motion.div
+              key={selectedIndex}
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
@@ -161,13 +176,35 @@ export default function FeaturedGallery() {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={selectedImage}
+                src={featuredImages[selectedIndex].src}
                 alt="Expanded view"
                 className="max-w-full max-h-[90vh] object-contain rounded-md"
               />
+              
+              {/* Previous Button */}
               <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-0 right-0 md:-top-4 md:-right-4 w-10 h-10 bg-matte text-white border border-line rounded-full flex items-center justify-center hover:text-gold hover:border-gold transition-colors z-10 translate-x-1/4 -translate-y-1/4 md:translate-x-1/2 md:-translate-y-1/2"
+                onClick={handlePrev}
+                className="absolute left-4 md:-left-12 top-1/2 -translate-y-1/2 w-12 h-12 bg-matte/50 hover:bg-matte text-white border border-line rounded-full flex items-center justify-center hover:text-gold hover:border-gold transition-colors z-20 cursor-pointer"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+
+              {/* Next Button */}
+              <button
+                onClick={handleNext}
+                className="absolute right-4 md:-right-12 top-1/2 -translate-y-1/2 w-12 h-12 bg-matte/50 hover:bg-matte text-white border border-line rounded-full flex items-center justify-center hover:text-gold hover:border-gold transition-colors z-20 cursor-pointer"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedIndex(null)}
+                className="absolute top-0 right-0 md:-top-4 md:-right-4 w-10 h-10 bg-matte text-white border border-line rounded-full flex items-center justify-center hover:text-gold hover:border-gold transition-colors z-30 translate-x-1/4 -translate-y-1/4 md:translate-x-1/2 md:-translate-y-1/2"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
