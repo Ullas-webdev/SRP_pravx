@@ -121,7 +121,7 @@ export default function Nav() {
             className="flex items-center focus:outline-none flex-1 md:flex-none"
             aria-label="Go to landing page"
           >
-            <Logo variant="horizontal" mode="dark" className="h-10 md:h-12 w-auto scale-110 md:scale-125 origin-left" />
+            <Logo variant="horizontal" mode="dark" className="h-9 md:h-11 w-auto scale-105 origin-left" />
           </button>
 
           {/* ── DESKTOP: centre nav links ── */}
