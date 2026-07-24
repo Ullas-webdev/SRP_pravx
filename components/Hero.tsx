@@ -79,38 +79,41 @@ function ArchLines({ index }: { index: number }) {
       <circle cx="490" cy="125" r="10" opacity="0.3" />
     </g>,
 
-    // Variant 2: Light Bulb Geometry (representing Electrical and Lighting)
+    // Variant 2: Copper Wire Roll (representing Electrical and MEP)
     <g key="2" stroke="#C9A66B" strokeWidth="0.8" fill="none" opacity="0.65">
-      {/* Outer radiating aura lines */}
-      <line x1="300" y1="100" x2="300" y2="60" strokeWidth="1.2" />
-      <line x1="420" y1="160" x2="450" y2="130" strokeWidth="1.2" />
-      <line x1="180" y1="160" x2="150" y2="130" strokeWidth="1.2" />
-      <line x1="450" y1="260" x2="490" y2="260" strokeWidth="1.2" />
-      <line x1="150" y1="260" x2="110" y2="260" strokeWidth="1.2" />
+      {/* Outer aura lines / sparkles to maintain consistency */}
+      <line x1="300" y1="90" x2="300" y2="50" strokeWidth="1.2" />
+      <line x1="420" y1="130" x2="450" y2="100" strokeWidth="1.2" />
+      <line x1="180" y1="130" x2="150" y2="100" strokeWidth="1.2" />
       
-      {/* Sparkle symbols */}
-      <path d="M 425 100 L 428 105 L 433 106 L 428 107 L 425 112 L 422 107 L 417 106 L 422 105 Z" fill="#C9A66B" />
-      <path d="M 175 100 L 178 105 L 183 106 L 178 107 L 175 112 L 172 107 L 167 106 L 172 105 Z" fill="#C9A66B" />
+      <path d="M 450 160 L 453 165 L 458 166 L 453 167 L 450 172 L 447 167 L 442 166 L 447 165 Z" fill="#C9A66B" />
+      <path d="M 150 160 L 153 165 L 158 166 L 153 167 L 150 172 L 147 167 L 142 166 L 147 165 Z" fill="#C9A66B" />
 
-      {/* Main glass contour */}
-      <path d="M 210 260 A 90 90 0 1 1 390 260 C 390 320, 345 350, 345 390 L 255 390 C 255 350, 210 320, 210 260 Z" strokeWidth="1.3" />
+      {/* Wire Spool Body */}
+      {/* Top flange inner/outer */}
+      <ellipse cx="300" cy="180" rx="90" ry="25" strokeWidth="1.2" />
+      <ellipse cx="300" cy="180" rx="30" ry="8" opacity="0.4" />
       
-      {/* Screw Base */}
-      <rect x="255" y="390" width="90" height="12" rx="4" />
-      <rect x="260" y="402" width="80" height="12" rx="4" />
-      <rect x="265" y="414" width="70" height="12" rx="4" />
-      {/* Bottom contact point */}
-      <path d="M 275 426 L 325 426 C 320 440, 280 440, 275 426 Z" fill="#C9A66B" opacity="0.35" />
+      {/* Main core wrap (wound wire) */}
+      <rect x="230" y="180" width="140" height="180" fill="none" strokeWidth="1.2" />
+      
+      {/* Render 12 horizontal lines for the wire wraps */}
+      {[...Array(12)].map((_, i) => (
+        <line key={i} x1="230" y1={195 + i * 14} x2="370" y2={195 + i * 14} strokeWidth="1.2" opacity="0.8" />
+      ))}
 
-      {/* Filaments and support wires */}
-      <line x1="282" y1="390" x2="282" y2="290" />
-      <line x1="318" y1="390" x2="318" y2="290" />
-      <line x1="300" y1="390" x2="300" y2="310" strokeDasharray="2,2" opacity="0.5" />
-      {/* Loop connector wire */}
-      <path d="M 282 290 L 293 260 L 307 260 L 318 290" strokeWidth="1.4" />
+      {/* Bottom flange */}
+      <path d="M 210 360 C 210 395, 390 395, 390 360" strokeWidth="1.2" />
       
-      {/* Inner glass reflection arc */}
-      <path d="M 235 220 A 70 70 0 0 1 365 220" strokeDasharray="3,3" opacity="0.4" />
+      {/* Vertical bounds of flanges */}
+      <line x1="210" y1="180" x2="210" y2="360" strokeWidth="1.2" />
+      <line x1="390" y1="180" x2="390" y2="360" strokeWidth="1.2" />
+
+      {/* Loose unspooled wire coming off the roll */}
+      <path d="M 230 320 C 130 310, 160 450, 260 420 S 420 380, 480 460" strokeWidth="1.4" />
+      
+      {/* Another broken/stray wire in background */}
+      <path d="M 370 240 C 460 250, 430 150, 520 160" strokeWidth="1" opacity="0.5" strokeDasharray="4 2" />
     </g>,
 
     // Variant 3: Power Drill Machine Geometry (representing Fabrication and Construction)
