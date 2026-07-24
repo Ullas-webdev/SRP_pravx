@@ -65,6 +65,31 @@ const featuredImages = [
     span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
     label: "Heavy-Duty Metal Shelving" 
   },
+  { 
+    src: "/featured/feat13.jpg", 
+    span: "aspect-square md:aspect-auto md:col-span-2 md:row-span-2", 
+    label: "Industrial Yellow Bins Storage" 
+  },
+  { 
+    src: "/featured/feat14.jpg", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    label: "Black Tiled Commercial Kitchen" 
+  },
+  { 
+    src: "/featured/feat15.jpg", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    label: "Corporate Lounge Area" 
+  },
+  { 
+    src: "/featured/feat16.jpg", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    label: "Cafe Outdoor Seating" 
+  },
+  { 
+    src: "/featured/feat17.jpg", 
+    span: "aspect-[4/3] md:aspect-auto md:col-span-1 md:row-span-1", 
+    label: "Commercial Exterior Shutter" 
+  },
 ];
 
 export default function FeaturedGallery() {
