@@ -13,6 +13,8 @@ export default function VideoSplash() {
     if (!video) return;
 
     const attemptPlay = () => {
+      // Force video to start exactly at 0:00
+      video.currentTime = 0;
       video.play().catch((err) => {
         console.error("Video play interrupted or blocked:", err);
       });
