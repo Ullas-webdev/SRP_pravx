@@ -40,6 +40,12 @@ export default function PageShell({ children }: PageShellProps) {
   // We determine showContent as true if we are ready and skip is true
   const showContent = ready && skip;
 
+  useEffect(() => {
+    if (showContent) {
+      window.dispatchEvent(new CustomEvent("app-ready"));
+    }
+  }, [showContent]);
+
   return (
     <>
       {/* Loader — only mount on first visit/refresh after client hydrates */}
