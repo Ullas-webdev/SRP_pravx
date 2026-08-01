@@ -1,10 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function VideoSplash() {
   const [showSplash, setShowSplash] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Force video play for strict browsers
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        console.error("Video autoplay was blocked by the browser:", err);
+      });
+    }
+  }, []);
 
   // Lock scrolling while splash is active, but bypass on mobile
   useEffect(() => {
@@ -38,9 +48,11 @@ export default function VideoSplash() {
         >
           {/* Background Video */}
           <video
+            ref={videoRef}
             autoPlay
             muted
             playsInline
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover opacity-70"
           >
             <source src="/VideoSplash.mp4" type="video/mp4" />
