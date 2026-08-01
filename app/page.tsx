@@ -10,10 +10,13 @@ import Footer from "@/components/Footer";
 import PageShell from "@/components/PageShell";
 import FeaturedGallery from "@/components/FeaturedGallery";
 import CalloutBanner from "@/components/CalloutBanner";
+import VideoSplash from "@/components/VideoSplash";
+
 export default function Home() {
   return (
     <PageShell>
       <main className="grain relative">
+        <VideoSplash />
         <Nav />
         <Hero />
         <ScrollJourney />
