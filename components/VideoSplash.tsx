@@ -40,7 +40,6 @@ export default function VideoSplash() {
           <video
             autoPlay
             muted
-            loop
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-70"
           >
