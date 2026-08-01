@@ -9,11 +9,37 @@ export default function VideoSplash() {
 
   // Force video play for strict browsers
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((err) => {
-        console.error("Video autoplay was blocked by the browser:", err);
+    const video = videoRef.current;
+    if (!video) return;
+
+    const attemptPlay = () => {
+      video.play().catch((err) => {
+        console.error("Video play interrupted or blocked:", err);
       });
+    };
+
+    // Attempt to play once the video is ready to avoid race conditions
+    if (video.readyState >= 3) {
+      attemptPlay();
+    } else {
+      video.addEventListener("canplay", attemptPlay);
     }
+    
+    // Also try playing on the first user interaction just in case
+    const playOnInteraction = () => {
+      attemptPlay();
+      window.removeEventListener("mousemove", playOnInteraction);
+      window.removeEventListener("touchstart", playOnInteraction);
+    };
+    
+    window.addEventListener("mousemove", playOnInteraction);
+    window.addEventListener("touchstart", playOnInteraction);
+
+    return () => {
+      video.removeEventListener("canplay", attemptPlay);
+      window.removeEventListener("mousemove", playOnInteraction);
+      window.removeEventListener("touchstart", playOnInteraction);
+    };
   }, []);
 
   // Lock scrolling while splash is active, but bypass on mobile
@@ -49,7 +75,6 @@ export default function VideoSplash() {
           {/* Background Video */}
           <video
             ref={videoRef}
-            autoPlay
             muted
             playsInline
             preload="auto"
