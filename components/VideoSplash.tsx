@@ -25,7 +25,14 @@ export default function VideoSplash() {
 
   const handleDismiss = useCallback(() => {
     setShowSplash(false);
-    document.body.style.overflow = "unset";
+    // Pin page to top so Hero section is presented first
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    
+    // Briefly delay scroll restoration so the dismiss gesture doesn't jump past Hero
+    setTimeout(() => {
+      document.body.style.overflow = "unset";
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }, 400);
   }, []);
 
   // Listen to scroll, wheel, touch, and key events to continue into main content
@@ -36,6 +43,7 @@ export default function VideoSplash() {
     }
 
     document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
 
     // 1. Mouse wheel event
     const handleWheel = (e: WheelEvent) => {
@@ -84,7 +92,6 @@ export default function VideoSplash() {
     window.addEventListener("scroll", handleWindowScroll, { passive: true });
 
     return () => {
-      document.body.style.overflow = "unset";
       window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
